@@ -7,10 +7,15 @@
 
 
 
-TeslaVM is graphical user interface made for QEMU for windows usage, since only linux have well working GUI interface for QEMU and its kinda hard and not practical to use so i thought that i can make a program like virt-manager for windows.
+TeslaVM is graphical user interface made for QEMU for windows usage, since only linux have well working GUI interface for QEMU and its kinda hard and not practical to use i thought that i can make a program like virt-manager.
 
+## Installation
+#### For development
+You have to git clone this repository, download nwjs sdk, qemu windows and put them unpacked into their folders. Open project in visual studio code or your favorite editor and run it by `nwjs/nw .` in root repository folder.
+
+#### For personal usage
+The compiled executables are available [here](https://github.com/tesla15/teslavm/releases)
 ## Todo
-- [X]  Windows 32bit support
 - [ ]  Windows 64bit support
 - [ ]  Save and select more than one machine (machine list like virtualbox,vmware)
 - [ ]  Improve frontend
