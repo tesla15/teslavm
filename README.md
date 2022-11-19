@@ -34,6 +34,7 @@ The compiled executables are available [here](https://github.com/tesla15/teslavm
 - [ ]  Slider of VRAM size
 - [ ]  MacOS support (very hard)
 - [ ]  Custom BIOS and maybe EFI
+
 and much more...
 ## FAQ
 
