@@ -9,11 +9,25 @@
 
 TeslaVM is graphical user interface made for QEMU for windows usage, since only linux have well working GUI interface for QEMU and its kinda hard and not practical to use i thought that i can make a program like virt-manager.
 
+## Todo
+- [ ]  Windows 64bit support
+- [ ]  Save and select more than one machine (machine list like virtualbox,vmware)
+- [ ]  Improve frontend
+- [ ]  Select cpu and machine type
+- [ ]  ARM virtualization (will be much better than other virtual machine software)
+- [ ]  Guest sound to host
+- [ ]  Internal virtual network
+- [ ]  NAT, Bridged etc. selection of network mode 
+- [ ]  Create virtual disk from app
+- [ ]  Select CD-ROM, virtual disk instead of typing the path
+- [ ]  Selection between VNC and default QEMU window
+- [ ]  USB, BT passtrough 
+and much more...
 ## FAQ
 
 #### Does it support machine acceleration and graphics acceleration?
 
-&nbsp;Yes it does on AMD and Intel CPU's
+&nbsp;Yes it does on AMD and Intel CPU's with Linux, partially with Windows
 
 #### What guest OS does it support?
 
@@ -37,8 +51,13 @@ TeslaVM is graphical user interface made for QEMU for windows usage, since only 
 #### I cant even launch a VM 😡😡
 &nbsp;Bro. You should check if your CPU supports VT-d/VT-x and if does, check if you have virtualization options enabled in BIOS.
 ## Screenshot from app
-
+super ultra mega early alpha frontend dont be scared it will look much better
 ![demo](https://media.discordapp.net/attachments/1019861237741400145/1043629222981279764/image.png?width=581&height=448)
+
+## Feedback
+
+If you have any feedback, please reach out to us at tesla#0069
+
 
 ## Authors
 
