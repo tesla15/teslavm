@@ -44,7 +44,7 @@ and much more...
 
 #### What guest OS does it support?
 
-&nbsp;Any linux distro 32bit/64bit and Windows (currently only 32bit)
+&nbsp;Currently only linux distros and windows 32bit
 
 #### Will it support more machines to save than only one?
 
