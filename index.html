@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TeslaVMs</title>
+    <script src="./node_modules/@6c65726f79/custom-titlebar/lib/index.js"></script> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.15.13/dist/css/uikit.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.15.13/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.15.13/dist/js/uikit-icons.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="mainbody">
+    <center>
+        <h2>TeslaVM's</h2>
+        <span>all os supported except Windows 64bit</span>
+        <div class="verticalgap" style="height:10px"></div>
+        <a>Procesor Type: </a>
+        <select id="cpus">
+            <option value="1">x86_64</option>
+          </select>
+        <div class="verticalgap" style="height:10px"></div>
+        <a>CPU cores</a>
+        <input type="range" min="1" max="4" value="1" id="cockcores"><a id="corescuro"></a>
+        <div class="verticalgap" style="height:10px"></div>
+        <a>RAM size (GB)</a>
+        <input type="range" min="1" max="8" value="1" id="ramsize"><a id="ramsizecur"></a>
+        <div class="verticalgap" style="height:10px"></div>
+        <a>VM accelerator</a>
+        <select id="acel">
+          <option value="tcg">Legacy (TCG)</option>
+          <option value="hax">Intel (HAX)</option>
+          <option value="whpx">Hyper-V</option>
+      </select>
+        <div class="verticalgap" style="height:10px"></div>
+        <a>Boot order</a>
+        <select id="bootorder">
+            <option value="d">CD-ROM</option>
+            <option value="c">Hard Drive</option>
+            <option value="a">Floopy</option>
+            <option value="n">Network</option>
+        </select>
+        <div class="verticalgap" style="height:10px"></div>
+        <a>Graphics accelerator</a>
+        <select id="gpuaccel">
+          <option value="std">Standard</option>
+          <option value="cirrus">Cirrus</option>
+          <option value="vmware">VMWare SVGA</option>
+          <option value="qxl">QXL</option>
+          <option value="virtio">Virtio</option>
+      </select>
+      <div class="verticalgap" style="height:10px"></div>
+        <a>Virtual Hard Disk</a><br>
+        <input type="text" placeholder="Enter path to qcow2 disk" required id="hdapath">
+        <div class="verticalgap" style="height:10px"></div>
+        <a>CD-ROM</a><br>
+        <input type="text" placeholder="*.iso" required id="cdrompath">
+        <div class="verticalgap" style="height:40px"></div>
+        <button class="uk-button uk-button-primary" onclick="save()">Save</button>
+        <button class="uk-button uk-button-primary" onclick="launchvm()">Start VM</button>
+        <button class="uk-button uk-button-primary" onclick="load()">Load</button>
+    </center>
+    </div>
+    <script src="titlebar.js"></script>
+    <script src="handle.js"></script>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+.mainbody {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.custom-titlebar span {
+    margin-right: 595px;
+}
+
+.material-symbols-outlined {
+    position: absolute;
+    transform: translateX(-50%);
+    right: -23px;
+}
+
+h2 {
+    height: 28px;
+}
