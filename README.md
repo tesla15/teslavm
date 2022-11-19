@@ -62,7 +62,7 @@ and much more...
 &nbsp;You have to [install](https://learn.microsoft.com/pl-pl/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v) Hyper-V.
 
 #### I cant even launch a VM 😡😡
-&nbsp;Bro. You should check if your CPU supports VT-d/VT-x and if does, check if you have virtualization options enabled in BIOS.
+&nbsp;Bro. You should check if your CPU supports VT-d/VT-x and if does, check if you have virtualization options enabled in BIOS. If that wasnt your problem you should check error in developer console (F11) or write to us for help (tesla#0069)
 ## Screenshot from app
 super ultra mega early alpha frontend dont be scared it will look much better
 ![demo](https://media.discordapp.net/attachments/1019861237741400145/1043629222981279764/image.png?width=581&height=448)
