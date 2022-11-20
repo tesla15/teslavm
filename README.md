@@ -50,10 +50,6 @@ and much more...
 
 &nbsp;Yes, we are planning to rework the GUI. We are currently working more on the backend than the frontend.
 
-#### Will it fully support windows?
-
-&nbsp;Currently Windows support is poor (only 32 bit, poor acceleration but it's ok) but we are going to improve it
-
 #### HAX acceleration makes my machines doesnt launch! 😠
 
 &nbsp;Probably you dont have [HAXM](https://github.com/intel/haxm/releases/tag/v7.7.1) or you have Hyper-V [enabled](https://www.nakivo.com/blog/uninstalling-or-disabling-hyper-v-in-windows-10/).
