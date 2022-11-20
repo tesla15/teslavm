@@ -4,18 +4,18 @@ var slider = document.getElementById("ramsize");
 var output = document.getElementById("ramsizecur");
 var slider = document.getElementById("ramsize");
 var output = document.getElementById("ramsizecur");
-
-var sliderg = document.getElementById("vgambb");  //
-var outputg = document.getElementById("vgambbcur");  //
-
+var sliderg = document.getElementById("vgambb");  // not used for while
+var outputg = document.getElementById("vgambbcur");  // not used for while
+var cdromoutput;
 
 var exec = require('child_process').exec;
 var fs = require('fs');
+const { arch } = require('os');
 
 function updatesliders() {
-    output.innerHTML = slider.value + "GB";
+    output.innerHTML = slider.value +  "GB";
     slider.oninput = function() {
-    output.innerHTML = this.value + "GB";
+    output.innerHTML = this.value + " GB";
     }
 
     outputc.innerHTML = sliderc.value;
@@ -26,117 +26,86 @@ function updatesliders() {
 
 updatesliders()
 
-
-function launchvm() {
-    const cpu_type = document.getElementById("cpus").value; //
-    const ram = document.getElementById("ramsize").value; //
-    const cores = document.getElementById("cockcores").value;//
-    const border = document.getElementById("bootorder").value;//
-    const hda = document.getElementById("hdapath").value;//
-    const cdrom = document.getElementById("cdrompath").value;
-    const vgaac = document.getElementById("gpuaccel").value;
-    const acel = document.getElementById("acel").value;
-
-    console.log(cpu_type, ram,cores,border,hda,cdrom);
-
-    if (cpu_type == 1) {
-        switch (acel) {
-            case "tcg":
-                if (hda == "" && cdrom == "") {
-                    console.log("no hda,cdrom")
-                    exec(`cd qemu && qemu-system-x86_64.exe -audiodev jack,id=snd0 -machine type=q35 -accel tcg -m ${ram}G -smp ${cores} -boot order=${border} -vga ${vgaac} -cpu Haswell-v4`, function callback(error, stdout, stderr) {
-                        console.log(error,stdout,stderr);
-                    });
-                } else if (cdrom == "") {
-                    console.log("no cdrom")
-                    exec(`cd qemu && qemu-system-x86_64.exe -audiodev jack,id=snd0 -machine type=q35 -accel tcg -m ${ram}G -smp ${cores} -boot order=${border} -hda ${hda} -vga ${vgaac} -cpu Haswell-v4`, function callback(error, stdout, stderr) {
-                        console.log(error,stdout,stderr);
-                    });
-                } else if (hda == "") {
-                    console.log("no hda")
-                    exec(`cd qemu && qemu-system-x86_64.exe -audiodev jack,id=snd0 -machine type=q35 -accel tcg -m ${ram}G -smp ${cores} -boot order=${border} -cdrom ${cdrom} -vga ${vgaac} -cpu Haswell-v4`, function callback(error, stdout, stderr) {
-                        console.log(error,stdout,stderr);
-                    });
-                } else {
-                    console.log("cdrom,hda")
-                    exec(`cd qemu && qemu-system-x86_64.exe -audiodev jack,id=snd0 -machine type=q35 -accel tcg -m ${ram}G -smp ${cores} -cdrom ${cdrom} -hda ${hda} -boot order=${border} -vga ${vgaac} -cpu Haswell-v4`, function callback(error, stdout, stderr) {
-                        console.log(error,stdout,stderr);
-                    });
-                }
-                break;
-            case "hax":
-                if (hda == "" && cdrom == "") {
-                    console.log("no hda,cdrom")
-                    exec(`cd qemu && qemu-system-x86_64.exe -audiodev jack,id=snd0 -machine type=q35 -accel hax -m ${ram}G -smp ${cores} -boot order=${border} -vga ${vgaac} -cpu Haswell-v4`, function callback(error, stdout, stderr) {
-                        console.log(error,stdout,stderr);
-                    });
-                } else if (cdrom == "") {
-                    console.log("no cdrom")
-                    exec(`cd qemu && qemu-system-x86_64.exe -audiodev jack,id=snd0 -machine type=q35 -accel hax -m ${ram}G -smp ${cores} -boot order=${border} -hda ${hda} -vga ${vgaac} -cpu Haswell-v4`, function callback(error, stdout, stderr) {
-                        console.log(error,stdout,stderr);
-                    });
-                } else if (hda == "") {
-                    console.log("no hda")
-                    exec(`cd qemu && qemu-system-x86_64.exe -audiodev jack,id=snd0 -machine type=q35 -accel hax -m ${ram}G -smp ${cores} -boot order=${border} -cdrom ${cdrom} -vga ${vgaac} -cpu Haswell-v4`, function callback(error, stdout, stderr) {
-                        console.log(error,stdout,stderr);
-                    });
-                } else {
-                    console.log("cdrom,hda")
-                    exec(`cd qemu && qemu-system-x86_64.exe -audiodev jack,id=snd0 -machine type=q35 -accel hax -m ${ram}G -smp ${cores} -cdrom ${cdrom} -hda ${hda} -boot order=${border} -vga ${vgaac} -cpu Haswell-v4`, function callback(error, stdout, stderr) {
-                        console.log(error,stdout,stderr);
-                    });
-                }
-                break;
-            case "whpx":
-                if (hda == "" && cdrom == "") {
-                    console.log("no hda,cdrom")
-                    exec(`cd qemu && qemu-system-x86_64.exe -audiodev jack,id=snd0 -machine type=q35 -accel whpx -m ${ram}G -smp ${cores} -boot order=${border} -vga ${vgaac} -cpu Haswell-v4`, function callback(error, stdout, stderr) {
-                        console.log(error,stdout,stderr);
-                    });
-                } else if (cdrom == "") {
-                    console.log("no cdrom")
-                    exec(`cd qemu && qemu-system-x86_64.exe -audiodev jack,id=snd0 -machine type=q35 -accel whpx -m ${ram}G -smp ${cores} -boot order=${border} -hda ${hda} -vga ${vgaac} -cpu Haswell-v4`, function callback(error, stdout, stderr) {
-                        console.log(error,stdout,stderr);
-                    });
-                } else if (hda == "") {
-                    console.log("no hda")
-                    exec(`cd qemu && qemu-system-x86_64.exe -audiodev jack,id=snd0 -machine type=q35 -accel whpx -m ${ram}G -smp ${cores} -boot order=${border} -cdrom ${cdrom} -vga ${vgaac} -cpu Haswell-v4`, function callback(error, stdout, stderr) {
-                        console.log(error,stdout,stderr);
-                    });
-                } else {
-                    console.log("cdrom,hda")
-                    exec(`cd qemu && qemu-system-x86_64.exe -audiodev jack,id=snd0 -machine type=q35 -accel whpx -m ${ram}G -smp ${cores} -cdrom ${cdrom} -hda ${hda} -boot order=${border} -vga ${vgaac} -cpu Haswell-v4`, function callback(error, stdout, stderr) {
-                        console.log(error,stdout,stderr);
-                    });
-                }
-                break;
-        }
-    } else if (cpu_type == 2) {
-        // 32 bit, but no sense because we have x86_64
-    }
+function hdasel() {
+    document.getElementById("page-mask").style.display = "block";
+    document.getElementById("hdapopup").style.display = "block";
 }
 
-function save() {
-    const cpu_type = document.getElementById("cpus").value; 
+function closehda() {
+    document.getElementById("page-mask").style.display = "none";
+    document.getElementById("hdapopup").style.display = "none";
+}
+
+const commandbuilder = () => {
+    const cpu_type = document.getElementById("cput").value; 
     const ram = document.getElementById("ramsize").value; 
     const cores = document.getElementById("cockcores").value;
     const border = document.getElementById("bootorder").value;
-    const hda = document.getElementById("hdapath").value;
-    const cdrom = document.getElementById("cdrompath").value;
+    const hda = document.getElementById("vda").value;
+    const cdrom = document.getElementById("cdr").value;
+    const vgaac = document.getElementById("gpuaccel").value;
+    const acel = document.getElementById("acel").value;
+    const useefi = document.getElementById("useefi").checked;
+    var command_base = "cd qemu && qemu-system-";
+    var command;
+
+    if (useefi) {
+        if (acel == "hax") {
+            alert("You cant use UEFI and HAX yet")
+        } else {
+            command = command_base + cpu_type + `.exe -m ${ram}G -smp ${cores} -boot ${border} -vga ${vgaac} -accel ${acel} -bios efi.fd`;
+        }
+    } else {
+        command = command_base + cpu_type + `.exe -m ${ram}G -smp ${cores} -boot ${border} -vga ${vgaac} -accel ${acel}`;
+    }
+    
+
+    if (cdrom != "" && hda != "") {
+        console.log("CD-ROM and Hard Disk attached, building command with them.")
+        return command + ` -hda ${hda} -cdrom ${cdrom}`
+    } else if (cdrom != "") {
+        console.log("CD-ROM attached, building command with it.")
+        return command + ` -cdrom ${cdrom}`
+    } else if (hda != "") {
+        console.log("Hard Disk attached, building command with it")
+        return command + ` -hda ${hda}`
+    } else {
+        console.log("Nothing attached")
+        return command
+    }
+}
+
+function launchvm() {
+    exec(commandbuilder(), function callback(error, stdout, stderr) {
+        console.log(error,stdout,stderr);
+    });
+}
+
+function save() {
+    const cpu_type = document.getElementById("cput").value; 
+    const ram = document.getElementById("ramsize").value; 
+    const cores = document.getElementById("cockcores").value;
+    const border = document.getElementById("bootorder").value;
+    const hda = document.getElementById("vda").value;
+    const cdrom = document.getElementById("cdr").value;
     const acel = document.getElementById("acel").value; 
     const gpu = document.getElementById("gpuaccel").value;
+    const useefi = document.getElementById("useefi").checked;
 
     var obj = {
         table: []
      };
 
-    obj.table.push({cpu_type: cpu_type, ram:ram, cores: cores, border: border, hda: hda, cdrom: cdrom, gpu: gpu, acel: acel});
+    obj.table.push({cpu_type: cpu_type, ram:ram, cores: cores, border: border, hda: hda, cdrom: cdrom, gpu: gpu, acel: acel, useefi: useefi});
+    //obj.table.push({cpu_type: cpu_type, ram:ram, cores: cores, border: border, gpu: gpu, acel: acel, useefi: useefi});
     var json = JSON.stringify(obj);
     fs.writeFile('settings.json', json, 'utf8', function (err) {
         if (err) {
             return console.log(err);
         }
     })
+
+    console.log("Settings succesfully saved to settings.json")
 }
 
 function load() {
@@ -149,14 +118,35 @@ function load() {
     const cdrom = obj.table[0].cdrom
     const acel = obj.table[0].acel;
     const gpu = obj.table[0].gpu;
+    const useefi = obj.table[0].useefi;
 
-    document.getElementById("cpus").value = cpu_type;
+    document.getElementById("cput").value = cpu_type;
     document.getElementById("ramsize").value = ram;
     document.getElementById("cockcores").value = cores;
     document.getElementById("bootorder").value = border;
-    document.getElementById("hdapath").value = hda;
-    document.getElementById("cdrompath").value = cdrom;
+    document.getElementById("vda").value = hda;
+    document.getElementById("cdr").value = cdrom;
     document.getElementById("acel").value = acel;
     document.getElementById("gpuaccel").value = gpu;
+    document.getElementById("useefi").checked = useefi;
+
+    console.log("Settings succesfully loaded from settings.json")
     updatesliders()
 }
+
+function cdromchanged() {
+    console.log("cdrom changed")
+    document.getElementById("cdr").value = document.getElementById("cdrfile").value;
+}
+function vdachanged() {
+    console.log("vda changed")
+    document.getElementById("vda").value = document.getElementById("vdafile").value;
+}
+
+$( "#vdabtn" ).click(function() {
+    $( "#vdafile" ).trigger( "click" );            
+});
+
+$( "#cdrbtn" ).click(function() {
+    $( "#cdrfile" ).trigger( "click" );            
+});

@@ -1,13 +1,262 @@
-.mainbody {
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+body {
+    background-image: url("https://media.discordapp.net/attachments/945709982425432066/1043913768742178949/bez_tytuu.jpg?width=550&height=427");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 103%;
+    overflow: hidden!important;
 }
 
+* {user-select: none;}
+
+
+.custom-titlebar-container {
+    overflow: hidden!important;
+}
+
+#sep {
+    height: 15px;
+}
+
+#machinedesc {
+    position: absolute;
+    display: inline-block;
+    width: 562px;
+    height: 504px;
+    margin-left: 126px;
+    margin-top: -615px;
+}
+#downbts {
+    margin-left: 86px;
+}
+
+button {
+    cursor: pointer;
+}
+
+#downbtn {
+    margin-left: 16px;
+    width: 103px;
+    color: #ffffffcb;
+    background-color: #343434;
+    height: 25px;
+    outline: none;
+    border: transparent;
+}
+
+#machinename {
+    text-align: center;
+    font-family: "Open Sans";
+    color: #ffffffcb;
+}
+
+
+select {
+    margin-left: 20px;
+    width: 115px;
+    color: #ffffffcb;
+    background-color: #343434;
+    height: 23px;
+    outline: none;
+    border: transparent;
+}
+
+#bord {
+    font-family: "Open Sans";
+    color: #ffffffcb;
+    margin-top: -7px;
+    margin-left: 139px;
+}
+
+#gpuac {
+    font-family: "Open Sans";
+    color: #ffffffcb;
+    margin-top: -7px;
+    margin-left: 69px;
+}
+
+#vdi {
+    font-family: "Open Sans";
+    color: #ffffffcb;
+    margin-top: -7px;
+    margin-left: 98px;
+}
+
+#sel {
+    margin-left: 20px;
+    width: 115px;
+    color: #ffffffcb;
+    background-color: #343434;
+    height: 23px;
+    outline: none;
+    border: transparent;
+}
+
+#vcd {
+    font-family: "Open Sans";
+    color: #ffffffcb;
+    margin-top: -7px;
+    margin-left: 156px;
+}
+
+#arch {
+    font-family: "Open Sans";
+    color: #ffffffcb;
+    margin-top: 30px;
+    margin-left: 130px;
+}
+
+#vda {
+    margin-left: 20px;
+    width: 115px;
+    color: #ffffffcb;
+    background-color: #343434;
+    height: 20px;
+    outline: none;
+    border: transparent;
+}
+#cdrt {
+    font-family: "Open Sans";
+    color: #ffffffcb;
+    margin-top: -7px;
+    margin-left: 156px;
+}
+
+#add_vdi {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+#add_cd {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+button {
+    background-color: transparent;
+    color: #ffffffcb;
+    outline: none; 
+    border: none;
+}
+
+#cdr { 
+    margin-left: 20px;
+    width: 115px;
+    color: #ffffffcb;
+    background-color: #343434;
+    height: 20px;
+    outline: none;
+    border: transparent;
+}
+
+#useefi {
+    margin-left: 25px;
+    position: absolute;
+    height: 17px;
+    width: 17px;
+    background-color: #eee;
+    outline: none;
+}
+
+#cpucoress {
+    font-family: "Open Sans";
+    color: #ffffffcb;
+    margin-top: -5px;
+    margin-left: 144px;
+}
+
+#cockcores {
+    margin-left: 16px;
+    margin-top: 7px;
+    height: 9px;
+}
+
+#useuefi {
+    font-family: "Open Sans";
+    color: #ffffffcb;
+    margin-top: -7px;
+    margin-left: 153px;
+}
+
+#ramsizee {
+    font-family: "Open Sans";
+    color: #ffffffcb;
+    margin-top: -5px;
+    margin-left: 154px;
+}
+
+#ramsize {
+    margin-left: 16px;
+    margin-top: 7px;
+    height: 9px;
+}
+
+#vmac {
+    font-family: "Open Sans";
+    color: #ffffffcb;
+    margin-top: -5px;
+    margin-left: 110px;
+}
+
+#machines {
+    color: #f1f1f1;
+    font-family: 'Open Sans';
+    width: 126px;
+    height: 510px;
+    margin-top: 105px;
+}
+
+#windows1 {
+    display: inline-block;
+    user-select: none;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+#windows2 {
+    display: inline-block;
+    user-select: none;
+    cursor: pointer;
+}
+
+#ubuntu {
+    text-align: center;
+    user-select: none;
+    display: inline-block;
+    cursor: pointer;
+}
+
+#ubuntu2 {
+    text-align: center;
+    display: inline-block;
+    cursor: pointer;
+    user-select: none;
+}
+
+#android {
+    text-align: center;
+    display: inline-block;
+    cursor: pointer;
+    user-select: none;
+}
+
+#server {
+    text-align: center;
+    user-select: none;
+    display: inline-block;
+    cursor: pointer;
+}
+
+
+#server2 {
+    text-align: center;
+    display: inline-block;
+    cursor: pointer;
+    user-select: none;
+}
+
+
 .custom-titlebar span {
-    margin-right: 595px;
+    margin-right: 485px;
 }
 
 .material-symbols-outlined {
@@ -18,4 +267,101 @@
 
 h2 {
     height: 28px;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload {
+    border: 1px solid rgba(255, 255, 255, 0.877);
+    border-radius: 10px;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    position: absolute;
+    top: 18%;
+    left: 29%;
+    width: 100px;
+    text-align: center;
+}
+
+
+.hdanew {
+    border: 1px solid rgba(255, 255, 255, 0.877);
+    border-radius: 10px;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    position: absolute;
+    top: 53%;
+    left: 29%;
+    width: 100px;
+    text-align: center;
+}
+
+.fa-cloud-upload {
+    color: rgba(255, 255, 255, 0.877);
+}
+
+.fa-plus {
+    color: rgba(255, 255, 255, 0.877);
+}
+
+#selfile {
+    color: rgba(255, 255, 255, 0.877);
+}
+
+label {
+    display: inline-block;
+    text-align: center;  
+    appearance: auto;
+    font-family: "calibri";
+    font-size: 16px;
+    writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    cursor: pointer;
+}
+
+#closehda {
+    color: white;
+    margin-left: 281px;
+    margin-top: -1px;
+    cursor: pointer;
+}
+
+#selcd {
+    margin-left: 20px;
+    width: 115px;
+    color: #ffffffcb;
+    background-color: #343434;
+    height: 23px;
+    outline: none;
+    border: transparent;
+}
+
+#page-mask {
+    display: none;
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+#hdapopup {
+    display: none;
+    margin: 0;
+    font-family: "Open Sans";
+    font-size: 15px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #333;
+    width: 300px;
+    height: 150px;
+    box-shadow: 20px 20px 40px 1px #0f0f0f;
+    border-radius: 10px;
 }

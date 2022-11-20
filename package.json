@@ -4,7 +4,8 @@
     "window": {
         "frame": false,
         "toolbar": false,
-        "height": 700,
+        "width": 688,
+        "height": 534,
         "resizable": false
     },
     "dependencies": {

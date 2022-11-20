@@ -5,7 +5,7 @@ const win = gui.Window.get();
 win.onRestore.addListener(() => { maximized=false; });
 
 const titlebar = new Titlebar({
-  backgroundColor: '#0f7ae5',
+  backgroundColor: '#393939',
   platform: platform,
   height: 30,
   maximizable: false,
