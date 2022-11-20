@@ -18,14 +18,14 @@ The compiled executables are available [here](https://github.com/tesla15/teslavm
 ## Todo
 - [X]  Windows 64bit support (Hyper-V + UEFI)
 - [ ]  Machine dashboard (machine list like virtualbox,vmware)
-- [ ]  Improve frontend
+- [X]  Improve frontend
 - [ ]  Select cpu and machine type
 - [ ]  ARM virtualization (will be much better than other virtual machine software)
 - [ ]  Guest sound to host
 - [ ]  Internal virtual network
 - [ ]  NAT, Bridged etc. selection of network mode 
 - [ ]  Create virtual disk from app
-- [ ]  Select CD-ROM, virtual disk instead of typing the path
+- [X]  Select CD-ROM, virtual disk instead of typing the path
 - [ ]  Selection between VNC and default QEMU window
 - [ ]  USB, BT passtrough 
 - [ ]  Android emulation support
@@ -33,7 +33,8 @@ The compiled executables are available [here](https://github.com/tesla15/teslavm
 - [ ]  Slider of VRAM size
 - [ ]  MacOS support (very hard)
 - [X]  Custom BIOS and maybe EFI
-- [ ]  Optimize code (command builder etc instead of switch,if)
+- [X]  Optimize code (command builder etc instead of switch,if)
+- [ ]  Tab switching in frontend
 and much more...
 ## FAQ
 
