@@ -17,7 +17,7 @@ You have to git clone this repository, download nwjs sdk, qemu windows and put t
 The compiled executables are available [here](https://github.com/tesla15/teslavm/releases)
 ## Todo
 - [X]  Windows 64bit support (Hyper-V + UEFI)
-- [ ]  Save and select more than one machine (machine list like virtualbox,vmware)
+- [ ]  Machine dashboard (machine list like virtualbox,vmware)
 - [ ]  Improve frontend
 - [ ]  Select cpu and machine type
 - [ ]  ARM virtualization (will be much better than other virtual machine software)
