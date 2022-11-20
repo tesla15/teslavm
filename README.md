@@ -33,8 +33,8 @@ The compiled executables are available [here](https://github.com/tesla15/teslavm
 - [ ]  Multi monitor support
 - [ ]  Slider of VRAM size
 - [ ]  MacOS support (very hard)
-- [ ]  Custom BIOS and maybe EFI
-
+- [X]  Custom BIOS and maybe EFI
+- [ ]  Optimize code (command builder etc instead of switch,if)
 and much more...
 ## FAQ
 
