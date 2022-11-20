@@ -16,8 +16,8 @@ You have to git clone this repository, download nwjs sdk, qemu windows and put t
 #### For personal usage
 The compiled executables are available [here](https://github.com/tesla15/teslavm/releases)
 ## Todo
-- [ ]  Windows 64bit support
-- [ ]  Save and select more than one machine (machine list like virtualbox,vmware)
+- [X]  Windows 64bit support (Hyper-V + UEFI)
+- [ ]  Machine dashboard (machine list like virtualbox,vmware)
 - [ ]  Improve frontend
 - [ ]  Select cpu and machine type
 - [ ]  ARM virtualization (will be much better than other virtual machine software)
@@ -28,6 +28,12 @@ The compiled executables are available [here](https://github.com/tesla15/teslavm
 - [ ]  Select CD-ROM, virtual disk instead of typing the path
 - [ ]  Selection between VNC and default QEMU window
 - [ ]  USB, BT passtrough 
+- [ ]  Android emulation support
+- [ ]  Multi monitor support
+- [ ]  Slider of VRAM size
+- [ ]  MacOS support (very hard)
+- [X]  Custom BIOS and maybe EFI
+- [ ]  Optimize code (command builder etc instead of switch,if)
 and much more...
 ## FAQ
 
@@ -37,15 +43,11 @@ and much more...
 
 #### What guest OS does it support?
 
-&nbsp;Any linux distro 32bit/64bit and Windows (currently only 32bit)
+&nbsp;Currently only linux distros and windows 32bit
 
 #### Will it support more machines to save than only one?
 
 &nbsp;Yes, we are planning to rework the GUI. We are currently working more on the backend than the frontend.
-
-#### Will it fully support windows?
-
-&nbsp;Currently Windows support is poor (only 32 bit, poor acceleration but it's ok) but we are going to improve it
 
 #### HAX acceleration makes my machines doesnt launch! 😠
 
@@ -55,7 +57,7 @@ and much more...
 &nbsp;You have to [install](https://learn.microsoft.com/pl-pl/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v) Hyper-V.
 
 #### I cant even launch a VM 😡😡
-&nbsp;Bro. You should check if your CPU supports VT-d/VT-x and if does, check if you have virtualization options enabled in BIOS.
+&nbsp;Bro. You should check if your CPU supports VT-d/VT-x and if does, check if you have virtualization options enabled in BIOS. If that wasnt your problem you should check error in developer console (F11) or write to us for help (tesla#0069)
 ## Screenshot from app
 super ultra mega early alpha frontend dont be scared it will look much better
 ![demo](https://media.discordapp.net/attachments/1019861237741400145/1043629222981279764/image.png?width=581&height=448)
