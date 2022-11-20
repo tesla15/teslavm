@@ -28,7 +28,6 @@ The compiled executables are available [here](https://github.com/tesla15/teslavm
 - [ ]  Select CD-ROM, virtual disk instead of typing the path
 - [ ]  Selection between VNC and default QEMU window
 - [ ]  USB, BT passtrough 
-- [ ]  Windows ARM support
 - [ ]  Android emulation support
 - [ ]  Multi monitor support
 - [ ]  Slider of VRAM size
