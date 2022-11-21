@@ -1,5 +1,5 @@
 
-# TeslaVM (super early alpha)
+# TeslaVM (early alpha)
 [![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg)](http://perso.crans.org/besson/LICENSE.html)
 [![Windows](https://badgen.net/badge/icon/windows?icon=windows&label)](https://microsoft.com/windows/)
 [![made-with-javascript](https://img.shields.io/badge/Made%20with-JavaScript-1f425f.svg)](https://www.javascript.com)
@@ -59,9 +59,14 @@ and much more...
 
 #### I cant even launch a VM 😡😡
 &nbsp;Bro. You should check if your CPU supports VT-d/VT-x and if does, check if you have virtualization options enabled in BIOS. If that wasnt your problem you should check error in developer console (F11) or write to us for help (tesla#0069)
+
+#### My windows VM keeps crashing at loading!
+&nbsp;Make sure you are using Hyper-V for windows 64/32bit and TCG/HAX for 32bit only.
+
 ## Screenshot from app
 super ultra mega early alpha frontend dont be scared it will look much better
 ![demo](https://media.discordapp.net/attachments/945709982425432066/1043983709042393131/image.png)
+
 
 ## Feedback
 
