@@ -63,6 +63,9 @@ and much more...
 super ultra mega early alpha frontend dont be scared it will look much better
 ![demo](https://media.discordapp.net/attachments/945709982425432066/1043983709042393131/image.png)
 
+#### My windows VM keeps crashing at loading!
+&nbsp;Make sure you are using Hyper-V for windows 64/32bit and TCG/HAX for 32bit only.
+
 ## Feedback
 
 If you have any feedback, please reach out to us at tesla#0069
