@@ -52,11 +52,12 @@ const commandbuilder = () => {
     if (useefi) {
         if (acel == "hax") {
             alert("You cant use UEFI and HAX yet")
+            //command = command_base + cpu_type + `.exe -machine q35 -cpu SandyBridge,hv_relaxed,hv_spinlocks=0x1fff,hv_vapic,hv_time -m ${ram}G -smp ${cores} -boot ${border} -vga ${vgaac} -accel ${acel} -bios ../ovmf.fd`;
         } else {
-            command = command_base + cpu_type + `.exe -machine q35 -cpu SandyBridge,hv_relaxed,hv_spinlocks=0x1fff,hv_vapic,hv_time -m ${ram}G -smp ${cores} -boot ${border} -vga ${vgaac} -accel ${acel} -bios efi.fd`;
+            command = command_base + cpu_type + `.exe -machine q35 -cpu SandyBridge,hv_relaxed,hv_spinlocks=0x1fff,hv_vapic,hv_time -m ${ram}G -smp ${cores} -boot ${border} -vga ${vgaac} -accel ${acel} -bios ../ovmf.fd`;
         }
     } else {
-        command = command_base + cpu_type + `.exe -m ${ram}G -smp ${cores} -boot ${border} -vga ${vgaac} -accel ${acel}`;
+        command = command_base + cpu_type + `.exe -machine q35 -cpu SandyBridge,hv_relaxed,hv_spinlocks=0x1fff,hv_vapic,hv_time -m ${ram}G -smp ${cores} -boot ${border} -vga ${vgaac} -accel ${acel}`;
     }
     
 
