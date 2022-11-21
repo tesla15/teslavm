@@ -53,7 +53,7 @@ const commandbuilder = () => {
         if (acel == "hax") {
             alert("You cant use UEFI and HAX yet")
         } else {
-            command = command_base + cpu_type + `.exe -m ${ram}G -smp ${cores} -boot ${border} -vga ${vgaac} -accel ${acel} -bios efi.fd`;
+            command = command_base + cpu_type + `.exe -machine q35 -cpu SandyBridge,hv_relaxed,hv_spinlocks=0x1fff,hv_vapic,hv_time -m ${ram}G -smp ${cores} -boot ${border} -vga ${vgaac} -accel ${acel} -bios efi.fd`;
         }
     } else {
         command = command_base + cpu_type + `.exe -m ${ram}G -smp ${cores} -boot ${border} -vga ${vgaac} -accel ${acel}`;
@@ -150,3 +150,16 @@ $( "#vdabtn" ).click(function() {
 $( "#cdrbtn" ).click(function() {
     $( "#cdrfile" ).trigger( "click" );            
 });
+
+
+function switchtype() {
+    console.log("Switched to " + document.getElementById("vtype").value)
+    if (document.getElementById("vtype").value == "hyperv") {
+        gethypervm()
+        document.getElementById("qemuvirt").style = "display: none;"
+        document.getElementById("hypervirt").style = ""
+    } else if (document.getElementById("vtype").value == "qemu") {
+        document.getElementById("hypervirt").style = "display: none;"
+        document.getElementById("qemuvirt").style = ""
+    }
+}

@@ -1,1 +1,1 @@
-{"table":[{"cpu_type":"x86_64","ram":"4","cores":"4","border":"d","hda":"","cdrom":"C:\\0SO\\win8.iso","gpu":"qxl","acel":"whpx","useefi":true}]}
+{"table":[{"cpu_type":"x86_64","ram":"8","cores":"4","border":"d","hda":"","cdrom":"C:\\0SO\\w16.iso","gpu":"std","acel":"whpx","useefi":true}]}

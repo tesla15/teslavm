@@ -49,6 +49,26 @@ button {
     color: #ffffffcb;
 }
 
+#vtypetext { 
+    font-family: "Open Sans";
+    color: #ffffffcb;
+    margin-top: 8px;
+    margin-left: 104px;
+}
+
+#hypervirt {
+    display: none;
+}
+
+#downbtnh {
+    margin-left: 16px;
+    width: 103px;
+    color: #ffffffcb;
+    background-color: #343434;
+    height: 25px;
+    outline: none;
+    border: transparent;
+}
 
 select {
     margin-left: 20px;
@@ -101,7 +121,7 @@ select {
 #arch {
     font-family: "Open Sans";
     color: #ffffffcb;
-    margin-top: 30px;
+    margin-top: -7px;
     margin-left: 130px;
 }
 

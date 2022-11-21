@@ -32,61 +32,69 @@
 
     <div id="machinedesc">
       <h1 id="machinename">Windows</h1>
-      <p id="arch">Architecture:
-        <select id="cput">
-          <option value="x86_64">x86_64</option>
-          <option value="i386">x86</option>
+      <p id="vtypetext">Virtualization by:
+        <select id="vtype" onchange="switchtype()">
+          <option value="qemu">QEMU</option>
         </select>
       </p>
-      <p id="useuefi">Use UEFI:
-        <input id="useefi" type="checkbox">
-      </p>
-      <p id="cpucoress">CPU cores:
-        <input type="range" min="1" max="6" value="1" id="cockcores"><a id="corescuro">
-      </p>
-      <p id="ramsizee">RAM size:
-        <input type="range" min="1" max="8" value="1" id="ramsize"><a id="ramsizecur">
-      </p>
-      <p id="vmac">VM accelerator:
-        <select id="acel">
-          <option value="tcg">Legacy (TCG)</option>
-          <option value="hax">Intel (HAX)</option>
-          <option value="whpx">Hyper-V</option>
+      <div id="qemuvirt">
+        <p id="arch">Architecture:
+          <select id="cput">
+            <option value="x86_64">x86_64</option>
+            <option value="i386">x86</option>
+          </select>
+        </p>
+        <p id="useuefi">Use UEFI:
+          <input id="useefi" type="checkbox">
+        </p>
+        <p id="cpucoress">CPU cores:
+          <input type="range" min="1" max="6" value="1" id="cockcores"><a id="corescuro"></a>
+        </p>
+        <p id="ramsizee">RAM size:
+          <input type="range" min="1" max="8" value="1" id="ramsize"><a id="ramsizecur"></a>
+        </p>
+        <p id="vmac">VM accelerator:
+          <select id="acel">
+            <option value="tcg">Legacy (TCG)</option>
+            <option value="hax">Intel (HAX)</option>
+            <option value="whpx">Hyper-V</option>
+          </select>
+        </p>
+        <p id="bord">Boot order:
+          <select id="bootorder">
+            <option value="d">CD-ROM</option>
+            <option value="c">Hard Drive</option>
+            <option value="a">Floopy</option>
+            <option value="n">Network</option>
         </select>
-      </p>
-      <p id="bord">Boot order:
-        <select id="bootorder">
-          <option value="d">CD-ROM</option>
-          <option value="c">Hard Drive</option>
-          <option value="a">Floopy</option>
-          <option value="n">Network</option>
-      </select>
-      </p>
-      <p id="gpuac">Graphics accelerator:
-        <select id="gpuaccel">
-          <option value="std">Standard</option>
-          <option value="cirrus">Cirrus</option>
-          <option value="vmware">VMWare SVGA</option>
-          <option value="qxl">QXL</option>
-          <option value="virtio">Virtio</option>
-        </select>
-      </p>
-      <p id="vdi">Virtual Hard Disk:
-        <input type="text" id="vda" \>
-        <input accept=".img" type="file" id="vdafile" onchange="vdachanged()" hidden>
-        <button id="vdabtn">x</button>
-      </p>
-      <p id="cdrt">CD-ROM:
-        <input type="text" id="cdr" \>
-        <input accept=".iso" type="file" id="cdrfile" onchange="cdromchanged()" hidden>
-        <button id="cdrbtn">x</button>
-      </p>
-      <br><br>
-      <div id="downbts">
-        <button id="downbtn" onclick="save()">Save</button>
-        <button id="downbtn" onclick="launchvm()">Start VM</button>
-        <button id="downbtn" onclick="load()">Load</button>
+        </p>
+        <p id="gpuac">Graphics accelerator:
+          <select id="gpuaccel">
+            <option value="std">Standard</option>
+            <option value="cirrus">Cirrus</option>
+            <option value="vmware">VMWare SVGA</option>
+            <option value="qxl">QXL</option>
+            <option value="virtio">Virtio</option>
+          </select>
+        </p>
+        <p id="vdi">Virtual Hard Disk:
+          <input type="text" id="vda" \>
+          <input accept=".img" type="file" id="vdafile" onchange="vdachanged()" hidden>
+          <button id="vdabtn">x</button>
+        </p>
+        <p id="cdrt">CD-ROM:
+          <input type="text" id="cdr" \>
+          <input accept=".iso" type="file" id="cdrfile" onchange="cdromchanged()" hidden>
+          <button id="cdrbtn">x</button>
+        </p>
+        <br><br>
+        <div id="downbts">
+          <button id="downbtn" onclick="save()">Save</button>
+          <button id="downbtn" onclick="launchvm()">Start VM</button>
+          <button id="downbtn" onclick="load()">Load</button>
+        </div>
       </div>
+
     </div>
    <!--
     <div id="page-mask"></div>
