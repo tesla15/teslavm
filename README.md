@@ -61,7 +61,7 @@ and much more...
 &nbsp;Bro. You should check if your CPU supports VT-d/VT-x and if does, check if you have virtualization options enabled in BIOS. If that wasnt your problem you should check error in developer console (F11) or write to us for help (tesla#0069)
 
 #### My windows VM keeps crashing at loading!
-&nbsp;Make sure you are using Hyper-V for windows 64/32bit and TCG/HAX for 32bit only.
+&nbsp;Make sure you are using Hyper-V for windows 64/32bit or TCG/HAX for 32bit only.
 
 ## Tree
 ![tree](https://media.discordapp.net/attachments/945709982425432066/1044312308236685393/image.png)
