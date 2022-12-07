@@ -44,20 +44,26 @@ const commandbuilder = () => {
     const hda = document.getElementById("vda").value;
     const cdrom = document.getElementById("cdr").value;
     const vgaac = document.getElementById("gpuaccel").value;
-    const acel = document.getElementById("acel").value;
+    const acell = document.getElementById("acel").value;
     const useefi = document.getElementById("useefi").checked;
     var command_base = "cd qemu && qemu-system-";
     var command;
+    var acel;
+    if (accell = "tcg") {
+        acel = "tcg,thread=multi"
+    } else {
+        acel = acell;
+    }
 
     if (useefi) {
         if (acel == "hax") {
             alert("You cant use UEFI and HAX yet")
             //command = command_base + cpu_type + `.exe -machine q35 -cpu SandyBridge,hv_relaxed,hv_spinlocks=0x1fff,hv_vapic,hv_time -m ${ram}G -smp ${cores} -boot ${border} -vga ${vgaac} -accel ${acel} -bios ../ovmf.fd`;
         } else {
-            command = command_base + cpu_type + `.exe -machine q35 -cpu SandyBridge,hv_relaxed,hv_spinlocks=0x1fff,hv_vapic,hv_time -m ${ram}G -smp ${cores} -boot ${border} -vga ${vgaac} -accel ${acel} -bios ../ovmf.fd`;
+            command = command_base + cpu_type + `.exe -machine q35 -cpu SandyBridge -m ${ram}G -smp ${cores} -boot ${border} -vga ${vgaac} -accel ${acel} -bios ../ovmf.fd`;
         }
     } else {
-        command = command_base + cpu_type + `.exe -machine q35 -cpu SandyBridge,hv_relaxed,hv_spinlocks=0x1fff,hv_vapic,hv_time -m ${ram}G -smp ${cores} -boot ${border} -vga ${vgaac} -accel ${acel}`;
+        command = command_base + cpu_type + `.exe -machine q35 -cpu SandyBridge -m ${ram}G -smp ${cores} -boot ${border} -vga ${vgaac} -accel ${acel}`;
     }
     
 
