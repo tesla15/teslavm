@@ -141,6 +141,12 @@ select {
     margin-left: 156px;
 }
 
+#vformat {
+    font-family: "Open Sans";
+    color: #ffffffcb;
+    margin-top: -15px;
+}
+
 #add_vdi {
     margin-left: 10px;
     cursor: pointer;
@@ -297,28 +303,56 @@ input[type="file"] {
     border: 1px solid rgba(255, 255, 255, 0.877);
     border-radius: 10px;
     display: inline-block;
+    position: absolute;
     padding: 6px 12px;
     cursor: pointer;
-    position: absolute;
-    top: 18%;
-    left: 29%;
-    width: 100px;
+    font-family: "Open Sans";
+    width: 80px;
+    font-size: 13px;
     text-align: center;
+    top: 71%;
+    left: 31.6%;
 }
 
-
-.hdanew {
-    border: 1px solid rgba(255, 255, 255, 0.877);
-    border-radius: 10px;
+#textvdisk {
+    position: absolute;
     display: inline-block;
-    padding: 6px 12px;
-    cursor: pointer;
-    position: absolute;
-    top: 53%;
-    left: 29%;
-    width: 100px;
+    /* position: absolute; */
+    font-family: "Open Sans";
+    font-size: 15px;
     text-align: center;
+    top: 6%;
+    left: 15%;
+    color: #f1f1f1;
 }
+
+#selectvdisk {
+    position: absolute;
+    display: inline-block;
+    /* position: absolute; */
+    font-family: "Open Sans";
+    font-size: 15px;
+    text-align: center;
+    top: 32%;
+    left: 10%;
+    color: #f1f1f1;
+}
+
+#vdisksize {
+    margin-top: 7px;
+    height: 8.5px;
+}
+
+#vdisksel {
+    color: #ffffffcb!important;
+    background-color: rgb(59, 59, 59)!important;
+    height: 20px!important;
+    outline: none!important;
+    border: transparent!important;
+    margin-left: 13px!important;
+}
+
+
 
 .fa-cloud-upload {
     color: rgba(255, 255, 255, 0.877);

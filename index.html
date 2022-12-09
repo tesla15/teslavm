@@ -79,8 +79,9 @@
         </p>
         <p id="vdi">Virtual Hard Disk:
           <input type="text" id="vda" \>
-          <input accept=".img" type="file" id="vdafile" onchange="vdachanged()" hidden>
+          <input accept=".raw, .qcow2" type="file" id="vdafile" onchange="vdachanged()" hidden>
           <button id="vdabtn">x</button>
+          <button id="adrbtn">v</button>
         </p>
         <p id="cdrt">CD-ROM:
           <input type="text" id="cdr" \>
@@ -96,20 +97,32 @@
       </div>
 
     </div>
-   <!--
+   
     <div id="page-mask"></div>
     <div id="hdapopup">
       <p id="closehda" onclick="closehda()">x</p>
-      <label class="custom-file-upload">
-        <i class="fa fa-cloud-upload"></i><span id="selfile"> Select file</span>
-        <input type="file" id="filehda" accept=".img"/>
-      </label>
-      <label class="hdanew">
-        <i class="fa fa-plus"></i><span id="selfile"> Create new</span>
-      </label>
-    </div>
-    -->
 
+      <p id="textvdisk">Disk format:
+        <select id="vdisksel">
+          <option value="qcow2">qcow2</option>
+          <option value="raw">RAW</option>
+        </select>
+      </p>
+
+      <br>
+
+      <p id="selectvdisk">Disk size:
+        <input type="range" min="1" max="1024" value="128" id="vdisksize"><a id="vdiskcur"></a>
+      </p>
+
+      <br>
+
+      <label class="custom-file-upload" onclick="vdiskcreate()">
+        <span id="selfile">Create</span>
+      </label>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="handle.js"></script>
     <script src="titlebar.js"></script>
    </body>
