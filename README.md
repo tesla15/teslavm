@@ -9,6 +9,8 @@
 
 TeslaVM is graphical user interface made for QEMU for windows usage, since only linux have well working GUI interface for QEMU and its kinda hard and not practical to use i thought that i can make a program like virt-manager.
 
+#### You cant use HAXM 7.8.0 for now. (It's not working properly)
+
 ## Installation
 #### For development
 You have to git clone this repository, download nwjs sdk, qemu windows and put them unpacked into their folders. Open project in visual studio code or your favorite editor and run it by `nwjs/nw .` in root repository folder.
