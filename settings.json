@@ -1,1 +1,1 @@
-{"table":[{"cpu_type":"x86_64","ram":"4","cores":"4","border":"c","hda":"C:\\Users\\tesla\\Documents\\VMs\\diskubuntu.img","cdrom":"C:\\SO\\ubuntu1804.iso","gpu":"qxl","acel":"hax","useefi":true}]}
+{"table":[{"cpu_type":"x86_64","ram":"1","cores":"1","border":"d","hda":"C:\\Users\\tesla\\Desktop\\vm\\teslavm\\qemu\\ser.qcow2","cdrom":"","gpu":"std","acel":"hax","useefi":false}]}

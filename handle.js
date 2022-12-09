@@ -4,28 +4,30 @@ var slider = document.getElementById("ramsize");
 var output = document.getElementById("ramsizecur");
 var slider = document.getElementById("ramsize");
 var output = document.getElementById("ramsizecur");
-var vdiskc = document.getElementById("vdisksize");  // not used for while
-var vdiskg = document.getElementById("vdiskcur");  // not used for while
-var vdiskpopup = false; 
+var vdiskc = document.getElementById("vdisksize"); // not used for while
+var vdiskg = document.getElementById("vdiskcur"); // not used for while
+var vdiskpopup = false;
 
 var exec = require('child_process').exec;
 var fs = require('fs');
-const { arch } = require('os');
+const {
+    arch
+} = require('os');
 
 function updatesliders() {
-    output.innerHTML = slider.value +  " GB";
+    output.innerHTML = slider.value + " GB";
     slider.oninput = function() {
-    output.innerHTML = this.value + " GB";
+        output.innerHTML = this.value + " GB";
     }
 
     outputc.innerHTML = sliderc.value;
     sliderc.oninput = function() {
-    outputc.innerHTML = this.value;
+        outputc.innerHTML = this.value;
     }
 
-    vdiskg.innerHTML = vdiskc.value +  " GB";
+    vdiskg.innerHTML = vdiskc.value + " GB";
     vdiskc.oninput = function() {
-    vdiskg.innerHTML = this.value + " GB";
+        vdiskg.innerHTML = this.value + " GB";
     }
 }
 
@@ -42,8 +44,8 @@ function closehda() {
 }
 
 const commandbuilder = () => {
-    const cpu_type = document.getElementById("cput").value; 
-    const ram = document.getElementById("ramsize").value; 
+    const cpu_type = document.getElementById("cput").value;
+    const ram = document.getElementById("ramsize").value;
     const cores = document.getElementById("cockcores").value;
     const border = document.getElementById("bootorder").value;
     const hda = document.getElementById("vda").value;
@@ -53,68 +55,87 @@ const commandbuilder = () => {
     const useefi = document.getElementById("useefi").checked;
     var command_base = "cd qemu && qemu-system-";
     var command;
-    var acel;
-    if (accell = "tcg") {
-        acel = "tcg,thread=multi"
-    } else {
-        acel = acell;
-    }
+    var finalaccel;
 
-    if (useefi) {
-        if (acell == "hax") {
-            alert("You cant use UEFI and HAX yet")
-            //command = command_base + cpu_type + `.exe -machine q35 -cpu SandyBridge,hv_relaxed,hv_spinlocks=0x1fff,hv_vapic,hv_time -m ${ram}G -smp ${cores} -boot ${border} -vga ${vgaac} -accel ${acell} -bios ../ovmf.fd`;
-        } else {
-            command = command_base + cpu_type + `.exe -machine q35 -cpu SandyBridge -m ${ram}G -smp ${cores} -boot ${border} -vga ${vgaac} -accel ${acell} -bios ../ovmf.fd`;
-        }
+    if (acell == "tcg") {
+        finalaccel = "tcg,thread=multi"
     } else {
-        command = command_base + cpu_type + `.exe -machine q35 -cpu SandyBridge -m ${ram}G -smp ${cores} -boot ${border} -vga ${vgaac} -accel ${acell}`;
+        finalaccel = acell;
     }
     
+
+    if (useefi) {
+        if (finalaccel == "hax") {
+            //alert("You cant use UEFI and HAX yet")
+            if (cores > 2) {
+                alert("You cant use more cores than 2 on UEFI HAXM")
+            } else {
+                command = command_base + cpu_type + `.exe -machine q35 -cpu SandyBridge, -m ${ram}G -smp ${cores} -boot ${border} -vga ${vgaac} -accel ${finalaccel} -bios ../ovmf.fd`;
+            }
+        } else {
+            command = command_base + cpu_type + `.exe -machine q35 -cpu SandyBridge -m ${ram}G -smp ${cores} -boot ${border} -vga ${vgaac} -accel ${finalaccel} -bios ../ovmf.fd`;
+            console.log("uefi no hax")
+        }
+    } else {
+        console.log("no uefi")
+        command = command_base + cpu_type + `.exe -machine q35 -cpu SandyBridge -m ${ram}G -smp ${cores} -boot ${border} -vga ${vgaac} -accel ${finalaccel}`;
+    }
+
 
     if (cdrom != "" && hda != "") {
         console.log("CD-ROM and Hard Disk attached, building command with them.")
+        console.log(command)
         return command + ` -hda ${hda} -cdrom ${cdrom}`
     } else if (cdrom != "") {
         console.log("CD-ROM attached, building command with it.")
+        console.log(command)
         return command + ` -cdrom ${cdrom}`
     } else if (hda != "") {
         console.log("Hard Disk attached, building command with it")
+        console.log(command)
         return command + ` -hda ${hda}`
     } else {
         console.log("Nothing attached")
+        console.log(command)
         return command
     }
-
-    
 }
 
 function launchvm() {
-    console.log(commandbuilder());
     exec(commandbuilder(), function callback(error, stdout, stderr) {
-        console.log(error,stdout,stderr);
+        console.log(error, stdout, stderr);
     });
 }
 
 function save() {
-    const cpu_type = document.getElementById("cput").value; 
-    const ram = document.getElementById("ramsize").value; 
+    const cpu_type = document.getElementById("cput").value;
+    const ram = document.getElementById("ramsize").value;
     const cores = document.getElementById("cockcores").value;
     const border = document.getElementById("bootorder").value;
     const hda = document.getElementById("vda").value;
     const cdrom = document.getElementById("cdr").value;
-    const acel = document.getElementById("acel").value; 
+    const acel = document.getElementById("acel").value;
     const gpu = document.getElementById("gpuaccel").value;
     const useefi = document.getElementById("useefi").checked;
 
     var obj = {
         table: []
-     };
+    };
 
-    obj.table.push({cpu_type: cpu_type, ram:ram, cores: cores, border: border, hda: hda, cdrom: cdrom, gpu: gpu, acel: acel, useefi: useefi});
+    obj.table.push({
+        cpu_type: cpu_type,
+        ram: ram,
+        cores: cores,
+        border: border,
+        hda: hda,
+        cdrom: cdrom,
+        gpu: gpu,
+        acel: acel,
+        useefi: useefi
+    });
     //obj.table.push({cpu_type: cpu_type, ram:ram, cores: cores, border: border, gpu: gpu, acel: acel, useefi: useefi});
     var json = JSON.stringify(obj);
-    fs.writeFile('settings.json', json, 'utf8', function (err) {
+    fs.writeFile('settings.json', json, 'utf8', function(err) {
         if (err) {
             return console.log(err);
         }
@@ -153,24 +174,25 @@ function cdromchanged() {
     console.log("cdrom changed")
     document.getElementById("cdr").value = document.getElementById("cdrfile").value;
 }
+
 function vdachanged() {
     console.log("vda changed")
     document.getElementById("vda").value = document.getElementById("vdafile").value;
 }
 
-$( "#vdabtn" ).click(function() {
-    $( "#vdafile" ).trigger( "click" );            
+$("#vdabtn").click(function() {
+    $("#vdafile").trigger("click");
 });
 
-$( "#cdrbtn" ).click(function() {
-    $( "#cdrfile" ).trigger( "click" );            
+$("#cdrbtn").click(function() {
+    $("#cdrfile").trigger("click");
 });
 
-$( "#adrbtn" ).click(function() {
+$("#adrbtn").click(function() {
     //$( "#adrfile" ).trigger( "click" );    
     console.log("show creator popup")
-    document.getElementById("page-mask").style = "display: block;";  
-    document.getElementById("hdapopup").style = "display: block;";      
+    document.getElementById("page-mask").style = "display: block;";
+    document.getElementById("hdapopup").style = "display: block;";
 });
 
 
@@ -186,24 +208,30 @@ function switchtype() {
     }
 }
 
+var cmd;
+var path;
+
+
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
 }
-var path;
+
+
 function generatepath() {
     path = `C:\\Users\\%USERNAME%\\VMs\\${getRandomInt(500000)}.${document.getElementById("vdisksel").value}`
 }
-var cmd;
+
+
 function vdiskcreate() {
     console.log("generating command");
     generatepath()
     cmd = `cd qemu && qemu-img create -f ${document.getElementById("vdisksel").value} ${path} ${document.getElementById("vdisksize").value + "G"}`
     console.log("command: " + cmd);
     exec("mkdir C:\\Users\\%USERNAME%\\VMs\\", function callback(error, stdout, stderr) {
-        console.log(error,stdout,stderr);
+        console.log(error, stdout, stderr);
     });
     exec(cmd, function callback(error, stdout, stderr) {
-        console.log(error,stdout,stderr);
+        console.log(error, stdout, stderr);
     });
-        alert("Disk created in " + path)
+    alert("Disk created in " + path)
 }

@@ -5,18 +5,15 @@ body {
     background-size: 103%;
     overflow: hidden!important;
 }
-
-* {user-select: none;}
-
-
+* {
+   user-select: none;
+}
 .custom-titlebar-container {
     overflow: hidden!important;
 }
-
 #sep {
     height: 15px;
 }
-
 #machinedesc {
     position: absolute;
     display: inline-block;
@@ -28,11 +25,9 @@ body {
 #downbts {
     margin-left: 86px;
 }
-
 button {
     cursor: pointer;
 }
-
 #downbtn {
     margin-left: 16px;
     width: 103px;
@@ -42,24 +37,20 @@ button {
     outline: none;
     border: transparent;
 }
-
 #machinename {
     text-align: center;
     font-family: "Open Sans";
     color: #ffffffcb;
 }
-
-#vtypetext { 
+#vtypetext {
     font-family: "Open Sans";
     color: #ffffffcb;
     margin-top: 8px;
     margin-left: 104px;
 }
-
 #hypervirt {
     display: none;
 }
-
 #downbtnh {
     margin-left: 16px;
     width: 103px;
@@ -69,7 +60,6 @@ button {
     outline: none;
     border: transparent;
 }
-
 select {
     margin-left: 20px;
     width: 115px;
@@ -79,28 +69,24 @@ select {
     outline: none;
     border: transparent;
 }
-
 #bord {
     font-family: "Open Sans";
     color: #ffffffcb;
     margin-top: -7px;
     margin-left: 139px;
 }
-
 #gpuac {
     font-family: "Open Sans";
     color: #ffffffcb;
     margin-top: -7px;
     margin-left: 69px;
 }
-
 #vdi {
     font-family: "Open Sans";
     color: #ffffffcb;
     margin-top: -7px;
     margin-left: 98px;
 }
-
 #sel {
     margin-left: 20px;
     width: 115px;
@@ -110,21 +96,18 @@ select {
     outline: none;
     border: transparent;
 }
-
 #vcd {
     font-family: "Open Sans";
     color: #ffffffcb;
     margin-top: -7px;
     margin-left: 156px;
 }
-
 #arch {
     font-family: "Open Sans";
     color: #ffffffcb;
     margin-top: -7px;
     margin-left: 130px;
 }
-
 #vda {
     margin-left: 20px;
     width: 115px;
@@ -140,31 +123,26 @@ select {
     margin-top: -7px;
     margin-left: 156px;
 }
-
 #vformat {
     font-family: "Open Sans";
     color: #ffffffcb;
     margin-top: -15px;
 }
-
 #add_vdi {
     margin-left: 10px;
     cursor: pointer;
 }
-
 #add_cd {
     margin-left: 10px;
     cursor: pointer;
 }
-
 button {
     background-color: transparent;
     color: #ffffffcb;
-    outline: none; 
+    outline: none;
     border: none;
 }
-
-#cdr { 
+#cdr {
     margin-left: 20px;
     width: 115px;
     color: #ffffffcb;
@@ -173,7 +151,6 @@ button {
     outline: none;
     border: transparent;
 }
-
 #useefi {
     margin-left: 25px;
     position: absolute;
@@ -182,47 +159,40 @@ button {
     background-color: #eee;
     outline: none;
 }
-
 #cpucoress {
     font-family: "Open Sans";
     color: #ffffffcb;
     margin-top: -5px;
     margin-left: 144px;
 }
-
 #cockcores {
     margin-left: 16px;
     margin-top: 7px;
     height: 9px;
 }
-
 #useuefi {
     font-family: "Open Sans";
     color: #ffffffcb;
     margin-top: -7px;
     margin-left: 153px;
 }
-
 #ramsizee {
     font-family: "Open Sans";
     color: #ffffffcb;
     margin-top: -5px;
     margin-left: 154px;
 }
-
 #ramsize {
     margin-left: 16px;
     margin-top: 7px;
     height: 9px;
 }
-
 #vmac {
     font-family: "Open Sans";
     color: #ffffffcb;
     margin-top: -5px;
     margin-left: 110px;
 }
-
 #machines {
     color: #f1f1f1;
     font-family: 'Open Sans';
@@ -230,75 +200,61 @@ button {
     height: 510px;
     margin-top: 105px;
 }
-
 #windows1 {
     display: inline-block;
     user-select: none;
     margin-top: 10px;
     cursor: pointer;
 }
-
 #windows2 {
     display: inline-block;
     user-select: none;
     cursor: pointer;
 }
-
 #ubuntu {
     text-align: center;
     user-select: none;
     display: inline-block;
     cursor: pointer;
 }
-
 #ubuntu2 {
     text-align: center;
     display: inline-block;
     cursor: pointer;
     user-select: none;
 }
-
 #android {
     text-align: center;
     display: inline-block;
     cursor: pointer;
     user-select: none;
 }
-
 #server {
     text-align: center;
     user-select: none;
     display: inline-block;
     cursor: pointer;
 }
-
-
 #server2 {
     text-align: center;
     display: inline-block;
     cursor: pointer;
     user-select: none;
 }
-
-
 .custom-titlebar span {
     margin-right: 485px;
 }
-
 .material-symbols-outlined {
     position: absolute;
     transform: translateX(-50%);
     right: -23px;
 }
-
 h2 {
     height: 28px;
 }
-
 input[type="file"] {
     display: none;
 }
-
 .custom-file-upload {
     border: 1px solid rgba(255, 255, 255, 0.877);
     border-radius: 10px;
@@ -313,11 +269,11 @@ input[type="file"] {
     top: 71%;
     left: 31.6%;
 }
-
 #textvdisk {
     position: absolute;
     display: inline-block;
-    /* position: absolute; */
+   /* position: absolute;
+    */
     font-family: "Open Sans";
     font-size: 15px;
     text-align: center;
@@ -325,11 +281,11 @@ input[type="file"] {
     left: 15%;
     color: #f1f1f1;
 }
-
 #selectvdisk {
     position: absolute;
     display: inline-block;
-    /* position: absolute; */
+   /* position: absolute;
+    */
     font-family: "Open Sans";
     font-size: 15px;
     text-align: center;
@@ -337,12 +293,10 @@ input[type="file"] {
     left: 10%;
     color: #f1f1f1;
 }
-
 #vdisksize {
     margin-top: 7px;
     height: 8.5px;
 }
-
 #vdisksel {
     color: #ffffffcb!important;
     background-color: rgb(59, 59, 59)!important;
@@ -351,24 +305,18 @@ input[type="file"] {
     border: transparent!important;
     margin-left: 13px!important;
 }
-
-
-
 .fa-cloud-upload {
     color: rgba(255, 255, 255, 0.877);
 }
-
 .fa-plus {
     color: rgba(255, 255, 255, 0.877);
 }
-
 #selfile {
     color: rgba(255, 255, 255, 0.877);
 }
-
 label {
     display: inline-block;
-    text-align: center;  
+    text-align: center;
     appearance: auto;
     font-family: "calibri";
     font-size: 16px;
@@ -376,14 +324,12 @@ label {
     text-rendering: auto;
     cursor: pointer;
 }
-
 #closehda {
     color: white;
     margin-left: 281px;
     margin-top: -1px;
     cursor: pointer;
 }
-
 #selcd {
     margin-left: 20px;
     width: 115px;
@@ -393,7 +339,6 @@ label {
     outline: none;
     border: transparent;
 }
-
 #page-mask {
     display: none;
     background: rgba(0, 0, 0, 0.5);
@@ -403,7 +348,6 @@ label {
     bottom: 0;
     left: 0;
 }
-
 #hdapopup {
     display: none;
     margin: 0;
