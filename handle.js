@@ -70,15 +70,15 @@ const commandbuilder = () => {
             if (cores > 2) {
                 alert("You cant use more cores than 2 on UEFI HAXM")
             } else {
-                command = command_base + cpu_type + `.exe -usbdevice tablet -machine q35 -cpu SandyBridge, -m ${ram}G -smp ${cores} -boot ${border} -vga ${vgaac} -accel ${finalaccel} -bios ../ovmf.fd`;
+                command = command_base + cpu_type + `.exe -usb -device AC97 -usbdevice tablet -display gtk,show-menubar=off -machine q35 -cpu SandyBridge, -m ${ram}G -smp ${cores} -boot ${border} -vga ${vgaac} -accel ${finalaccel} -bios ../ovmf.fd`;
             }
         } else {
-            command = command_base + cpu_type + `.exe -usbdevice tablet -machine q35 -cpu SandyBridge -m ${ram}G -smp ${cores} -boot ${border} -vga ${vgaac} -accel ${finalaccel} -bios ../ovmf.fd`;
+            command = command_base + cpu_type + `.exe -usb -device AC97 -usbdevice tablet -display gtk,show-menubar=off -machine q35 -cpu SandyBridge -m ${ram}G -smp ${cores} -boot ${border} -vga ${vgaac} -accel ${finalaccel} -bios ../ovmf.fd`;
             console.log("uefi no hax")
         }
     } else {
         console.log("no uefi")
-        command = command_base + cpu_type + `.exe -usbdevice tablet -machine q35 -cpu SandyBridge -m ${ram}G -smp ${cores} -boot ${border} -vga ${vgaac} -accel ${finalaccel}`;
+        command = command_base + cpu_type + `.exe -usb -device AC97 -usbdevice tablet -display gtk,show-menubar=off -machine q35 -cpu SandyBridge -m ${ram}G -smp ${cores} -boot ${border} -vga ${vgaac} -accel ${finalaccel}`;
     }
 
 
