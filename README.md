@@ -24,7 +24,7 @@ The compiled executables are available [here](https://github.com/tesla15/teslavm
 - [X]  Improve frontend
 - [ ]  Select cpu and machine type
 - [ ]  ARM virtualization (will be much better than other virtual machine software)
-- [ ]  Guest sound to host
+- [X]  Guest sound to host
 - [ ]  Internal virtual network
 - [ ]  NAT, Bridged etc. selection of network mode 
 - [ ]  Create virtual disk from app
