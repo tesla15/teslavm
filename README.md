@@ -22,7 +22,7 @@ The compiled executables are available [here](https://github.com/tesla15/teslavm
 - [X]  Windows 64bit support (Hyper-V + UEFI)
 - [ ]  Machine dashboard (machine list like virtualbox,vmware)
 - [X]  Improve frontend
-- [ ]  Select cpu and machine type
+- [X]  Select cpu and machine type
 - [ ]  ARM virtualization (will be much better than other virtual machine software)
 - [X]  Guest sound to host
 - [ ]  Internal virtual network
