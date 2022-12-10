@@ -1,6 +1,6 @@
 body {
-    background-image: url("https://media.discordapp.net/attachments/945709982425432066/1043913768742178949/bez_tytuu.jpg?width=550&height=427");
     background-repeat: no-repeat;
+    background-color: rgba(34, 34, 34, 0.98);
     background-position: center;
     background-size: 103%;
     overflow: hidden!important;
@@ -19,11 +19,12 @@ body {
     display: inline-block;
     width: 562px;
     height: 504px;
-    margin-left: 126px;
+    margin-left: 100px;
     margin-top: -615px;
 }
 #downbts {
-    margin-left: 86px;
+    margin-left: 71px;
+    margin-top: 18px;
 }
 button {
     cursor: pointer;
@@ -47,6 +48,13 @@ button {
     color: #ffffffcb;
     margin-top: 8px;
     margin-left: 104px;
+}
+
+#audiop {
+    font-family: "Open Sans";
+    color: #ffffffcb;
+    margin-top: -7px;
+    margin-left: 176px;
 }
 #hypervirt {
     display: none;
@@ -108,6 +116,21 @@ select {
     margin-top: -7px;
     margin-left: 130px;
 }
+
+#machinetype {
+    font-family: "Open Sans";
+    color: #ffffffcb;
+    margin-top: -7px;
+    margin-left: 122px;
+}
+
+#cputype {
+    font-family: "Open Sans";
+    color: #ffffffcb;
+    margin-top: -7px;
+    margin-left: 152px;
+}
+
 #vda {
     margin-left: 20px;
     width: 115px;

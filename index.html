@@ -12,25 +12,13 @@
     <script src="https://code.jquery.com/jquery-3.6.1.slim.min.js" integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA=" crossorigin="anonymous"></script>
   </head>
   <body>
+    
     <div id="machines">
-      <center>
-        <span id="windows1">Windows</span>
-        <div id="sep"></div>
-        <span id="windows2">Windows 2</span>
-        <div id="sep"></div>
-        <span id="ubuntu">Linux</span>
-        <div id="sep"></div>
-        <span id="ubuntu2">Linux 2</span>
-        <div id="sep"></div>
-        <span id="android">Android</span>
-        <div id="sep"></div>
-        <span id="server">Server</span>
-        <div id="sep"></div>
-        <span id="server2">Server 2</span>
-      </center>
+
     </div>
+    
     <div id="machinedesc">
-      <h1 id="machinename">Windows</h1>
+      <br>
       <p id="vtypetext">Virtualization by: <select id="vtype" onchange="switchtype()">
           <option value="qemu">QEMU</option>
         </select>
@@ -41,6 +29,54 @@
             <option value="i386">x86</option>
           </select>
         </p>
+        <p id="machinetype">Machine type: <select id="machtype">
+          <option value="q35">q35 (Modern)</option>
+          <option value="pc">pc (Legacy)</option>
+          <option value="microvm">MicroVM</option>
+          <option value="isapc">isaPC</option>
+        </select>
+      </p>
+      <p id="cputype">CPU type: <select id="cputypesel">
+        <option value="SandyBridge">SandyBridge</option>
+        <option value="Broadwell">Broadwell</option>
+        <option value="486">486</option>
+        <option value="Cascadelake-Server-v5">Cascadelake-Server-v5</option>
+        <option value="Conroe-v1">Conroe-v1</option>
+        <option value="Cooperlake-v2">Cooperlake-v2</option>
+        <option value="Denverton-v3">Denverton-v3</option>
+        <option value="Dhyana-v2">Dhyana-v2</option>
+        <option value="EPYC-v3">EPYC-v3</option>
+        <option value="Haswell-v4">Haswell-v4</option>
+        <option value="Icelake-Server-v6">Icelake-Server-v6</option>
+        <option value="IvyBridge-v2">IvyBridge-v2</option>
+        <option value="KnightsMill">KnightsMill</option>
+        <option value="Nehalem">Nehalem</option>
+        <option value="Penryn-v1">Penryn-v1</option>
+        <option value="Skylake-Client-v4">Skylake-Client-v4</option>
+        <option value="Skylake-Server-v5">Skylake-Server-v5</option>
+        <option value="Snowridge-v4">Snowridge-v4</option>
+        <option value="Westmere-v2">Westmere-v2</option>
+        <option value="athlon-v1">athlon-v1</option>
+        <option value="core2duo">core2duo</option>
+        <option value="kvm32">kvm32</option>
+        <option value="kvm64">kvm64</option>
+        <option value="n270">n270</option>
+        <option value="pentium3">pentium3</option>
+        <option value="base">base</option>
+        <option value="phenom">phenom</option>
+      </select>
+    </p>
+    <p id="audiop">Audio: <select id="audiosel">
+      <option value="-device AC97">Guest to Host</option>
+      <option value="">None</option>
+    </select>
+    </p>
+    <p id="vmac">VM accelerator: <select id="acel">
+      <option value="tcg">Legacy (TCG)</option>
+      <option value="hax">Intel (HAX)</option>
+      <option value="whpx">Hyper-V</option>
+    </select>
+    </p>
         <p id="useuefi">Use UEFI: <input id="useefi" type="checkbox">
         </p>
         <p id="cpucoress">CPU cores: <input type="range" min="1" max="6" value="1" id="cockcores">
@@ -48,12 +84,6 @@
         </p>
         <p id="ramsizee">RAM size: <input type="range" min="1" max="8" value="1" id="ramsize">
           <a id="ramsizecur"></a>
-        </p>
-        <p id="vmac">VM accelerator: <select id="acel">
-            <option value="tcg">Legacy (TCG)</option>
-            <option value="hax">Intel (HAX)</option>
-            <option value="whpx">Hyper-V</option>
-          </select>
         </p>
         <p id="bord">Boot order: <select id="bootorder">
             <option value="d">CD-ROM</option>

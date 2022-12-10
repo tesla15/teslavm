@@ -53,6 +53,10 @@ const commandbuilder = () => {
     const vgaac = document.getElementById("gpuaccel").value;
     const acell = document.getElementById("acel").value;
     const useefi = document.getElementById("useefi").checked;
+    const machinetype = document.getElementById("machtype").value;
+    const cputype = document.getElementById("cputypesel").value;
+    const audio = document.getElementById("audiosel").value;
+
     var command_base = "cd qemu && qemu-system-";
     var command;
     var finalaccel;
@@ -70,15 +74,15 @@ const commandbuilder = () => {
             if (cores > 2) {
                 alert("You cant use more cores than 2 on UEFI HAXM")
             } else {
-                command = command_base + cpu_type + `.exe -device AC97 -usbdevice tablet -display gtk -machine q35 -cpu SandyBridge, -m ${ram}G -smp ${cores} -boot ${border} -vga ${vgaac} -accel ${finalaccel} -bios ../ovmf.fd`;
+                command = command_base + cpu_type + `.exe ${audio} -usbdevice tablet -display gtk -machine ${machinetype} -cpu ${cputype}, -m ${ram}G -smp ${cores} -boot ${border} -vga ${vgaac} -accel ${finalaccel} -bios ../ovmf.fd`;
             }
         } else {
-            command = command_base + cpu_type + `.exe -device AC97 -usbdevice tablet -display gtk -machine q35 -cpu SandyBridge -m ${ram}G -smp ${cores} -boot ${border} -vga ${vgaac} -accel ${finalaccel} -bios ../ovmf.fd`;
+            command = command_base + cpu_type + `.exe ${audio} -usbdevice tablet -display gtk -machine ${machinetype} -cpu ${cputype} -m ${ram}G -smp ${cores} -boot ${border} -vga ${vgaac} -accel ${finalaccel} -bios ../ovmf.fd`;
             console.log("uefi no hax")
         }
     } else {
         console.log("no uefi")
-        command = command_base + cpu_type + `.exe -device AC97 -usbdevice tablet -display gtk -machine q35 -cpu SandyBridge -m ${ram}G -smp ${cores} -boot ${border} -vga ${vgaac} -accel ${finalaccel}`;
+        command = command_base + cpu_type + `.exe ${audio} -usbdevice tablet -display gtk -machine ${machinetype} -cpu ${cputype} -m ${ram}G -smp ${cores} -boot ${border} -vga ${vgaac} -accel ${finalaccel}`;
     }
 
 
@@ -117,6 +121,9 @@ function save() {
     const acel = document.getElementById("acel").value;
     const gpu = document.getElementById("gpuaccel").value;
     const useefi = document.getElementById("useefi").checked;
+    const machinetype = document.getElementById("machtype").value;
+    const cputype = document.getElementById("cputypesel").value;
+    const audio = document.getElementById("audiosel").value;
 
     var obj = {
         table: []
@@ -131,7 +138,11 @@ function save() {
         cdrom: cdrom,
         gpu: gpu,
         acel: acel,
-        useefi: useefi
+        useefi: useefi,
+        machinetype: machinetype,
+        cputype: cputype,
+        audio, audio
+
     });
     //obj.table.push({cpu_type: cpu_type, ram:ram, cores: cores, border: border, gpu: gpu, acel: acel, useefi: useefi});
     var json = JSON.stringify(obj);
@@ -155,6 +166,9 @@ function load() {
     const acel = obj.table[0].acel;
     const gpu = obj.table[0].gpu;
     const useefi = obj.table[0].useefi;
+    const machinetype = obj.table[0].machinetype;
+    const cputype = obj.table[0].cputype;
+    const audio = obj.table[0].audio;
 
     document.getElementById("cput").value = cpu_type;
     document.getElementById("ramsize").value = ram;
@@ -165,6 +179,9 @@ function load() {
     document.getElementById("acel").value = acel;
     document.getElementById("gpuaccel").value = gpu;
     document.getElementById("useefi").checked = useefi;
+    document.getElementById("machtype").value = machinetype;
+    document.getElementById("cputypesel").value = cputype;
+    document.getElementById("audiosel").value = audio;
 
     console.log("Settings succesfully loaded from settings.json")
     updatesliders()
