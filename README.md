@@ -9,7 +9,7 @@
 
 TeslaVM is graphical user interface made for QEMU for windows usage, since only linux have well working GUI interface for QEMU and its kinda hard and not practical to use i thought that i can make a program like virt-manager.
 
-#### This program requires internet connection, if you dont have one on machine you're running TeslaVM then you should get offline-mode version.
+#### This program requires internet connection
 
 #### You cant use HAXM 7.8.0 for now. (It's not working properly)
 You should use QEMU 20221130, HAXM 7.7.1
