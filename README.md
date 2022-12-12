@@ -41,13 +41,13 @@ The compiled executables are available [here](https://github.com/tesla15/teslavm
 and much more...
 ## FAQ
 
-#### Does it support machine acceleration and graphics acceleration?
+#### Does it support machine acceleration ?
 
-&nbsp;Yes it does on AMD and Intel CPU's with Linux, partially with Windows
+&nbsp;Yes it does on AMD and Intel CPU's with Linux, partially with Windows (full with Hyper-V)
 
 #### What guest OS does it support?
 
-&nbsp;Currently only linux distros and windows 32bit
+&nbsp;All you dream about!
 
 #### Will it support more machines to save than only one?
 
