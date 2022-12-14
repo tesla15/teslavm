@@ -27,10 +27,10 @@ The compiled executables are available [here](https://github.com/tesla15/teslavm
 - [X]  Guest sound to host
 - [ ]  Internal virtual network
 - [ ]  NAT, Bridged etc. selection of network mode 
-- [ ]  Create virtual disk from app
+- [X]  Create virtual disk from app
 - [X]  Select CD-ROM, virtual disk instead of typing the path
 - [ ]  Selection between VNC and default QEMU window
-- [ ]  USB, BT passtrough 
+- [ ]  USB passtrough 
 - [X]  Android emulation support
 - [ ]  Multi monitor support
 - [ ]  Slider of VRAM size
