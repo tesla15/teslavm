@@ -75,8 +75,6 @@ and much more...
 
 **A:** Make sure you are using Hyper-V for windows 64/32bit or TCG/HAX for 32bit only.
 ##
-## Tree
-![tree](https://media.discordapp.net/attachments/945709982425432066/1044312308236685393/image.png)
 
 ## Screenshot from app
 super ultra mega early alpha frontend dont be scared it will look much better
