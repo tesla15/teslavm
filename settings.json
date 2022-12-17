@@ -1,1 +1,1 @@
-{"table":[{"cpu_type":"x86_64","ram":"1","cores":"1","border":"d","hda":"","cdrom":"","gpu":"std","acel":"tcg","useefi":false,"machinetype":"microvm","cputype":"Cooperlake-v2","audio":""}]}
+{"table":[{"cpu_type":"x86_64","ram":"6","cores":"4","border":"c","hda":"C:\\Users\\tesla\\VMs\\11962.qcow2","cdrom":"","gpu":"virtio","acel":"hax","useefi":false,"machinetype":"q35","cputype":"kvm64","audio":"-device AC97"}]}

@@ -353,6 +353,17 @@ label {
     margin-top: -1px;
     cursor: pointer;
 }
+
+input {
+    background-color: transparent;
+    outline: 0;
+    outline-color: transparent;
+    color: white;
+    font-family: "Open Sans"!important;
+    border: none;
+    font-size: 15px;
+}
+
 #selcd {
     margin-left: 20px;
     width: 115px;

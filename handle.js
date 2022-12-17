@@ -6,13 +6,21 @@ var slider = document.getElementById("ramsize");
 var output = document.getElementById("ramsizecur");
 var vdiskc = document.getElementById("vdisksize"); // not used for while
 var vdiskg = document.getElementById("vdiskcur"); // not used for while
-var vdiskpopup = false;
 
 var exec = require('child_process').exec;
 var fs = require('fs');
-const {
-    arch
-} = require('os');
+const os = require("os");
+
+
+function setrightvalues() {
+    const totalmem = os.totalmem();
+    const cpucount = os.cpus().length;
+    let totalmemgb = (totalmem / (1000 * 1000 * 1000)).toFixed(2) - 1;
+    console.log(totalmemgb, cpucount);
+    sliderc.setAttribute("max",cpucount);
+    slider.setAttribute("max",totalmemgb);
+}
+
 
 function updatesliders() {
     output.innerHTML = slider.value + " GB";
@@ -31,7 +39,6 @@ function updatesliders() {
     }
 }
 
-updatesliders()
 
 function hdasel() {
     document.getElementById("page-mask").style.display = "block";
@@ -70,7 +77,6 @@ const commandbuilder = () => {
 
     if (useefi) {
         if (finalaccel == "hax") {
-            //alert("You cant use UEFI and HAX yet")
             if (cores > 2) {
                 alert("You cant use more cores than 2 on UEFI HAXM")
             } else {
@@ -107,7 +113,12 @@ const commandbuilder = () => {
 
 function launchvm() {
     exec(commandbuilder(), function callback(error, stdout, stderr) {
-        console.log(error, stdout, stderr);
+        console.log(stderr);
+        if (stderr.includes("warning") || stderr.includes("WARNING")) {
+            //ignore
+        } else {
+            alert(stderr);
+        }
     });
 }
 
