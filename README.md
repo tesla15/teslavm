@@ -18,6 +18,17 @@ You have to git clone this repository, download nwjs sdk, qemu windows and put t
 
 #### For personal usage
 The compiled executables are available [here](https://github.com/tesla15/teslavm/releases), run teslavm using run.cmd
+
+## Performance
+#### TeslaVM: 53028 points [image](https://imgur.com/R9UuFTp)
+
+Native (No VM): 52646 points [image](https://imgur.com/R9UuFTp)
+
+VirtualBox: 42430 points [image](https://imgur.com/eduIUkR)
+
+
+
+
 ## Todo
 - [X]  Windows 64bit support (Hyper-V + UEFI)
 - [ ]  Machine dashboard (machine list like virtualbox,vmware)
