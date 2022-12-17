@@ -17,7 +17,7 @@ You should use QEMU 20221130, HAXM 7.7.1
 You have to git clone this repository, download nwjs sdk, qemu windows and put them unpacked into their folders. Open project in visual studio code or your favorite editor and run it by `nwjs/nw .` in root repository folder.
 
 #### For personal usage
-The compiled executables are available [here](https://github.com/tesla15/teslavm/releases), run teslavm using run.cmd
+The compiled executables are available.
 
 ## Performance
 #### TeslaVM: 53028 points [image](https://imgur.com/R9UuFTp)
