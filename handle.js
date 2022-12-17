@@ -21,6 +21,8 @@ function setrightvalues() {
 }
 
 
+
+
 function updatesliders() {
     output.innerHTML = slider.value + " GB";
     slider.oninput = function() {
@@ -38,6 +40,8 @@ function updatesliders() {
     }
 }
 
+setrightvalues();
+updatesliders();
 
 function hdasel() {
     document.getElementById("page-mask").style.display = "block";
@@ -262,3 +266,5 @@ function vdiskcreate() {
     });
     alert("Disk created in " + path)
 }
+
+
