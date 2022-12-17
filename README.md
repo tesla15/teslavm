@@ -17,7 +17,20 @@ You should use QEMU 20221130, HAXM 7.7.1
 You have to git clone this repository, download nwjs sdk, qemu windows and put them unpacked into their folders. Open project in visual studio code or your favorite editor and run it by `nwjs/nw .` in root repository folder.
 
 #### For personal usage
-The compiled executables are available [here](https://github.com/tesla15/teslavm/releases), run teslavm using run.cmd
+The compiled executables are available.
+
+## Performance
+#### TeslaVM: 53028 points [image](https://imgur.com/R9UuFTp)
+
+Native (No VM): 52646 points [image](https://imgur.com/R9UuFTp)
+
+VirtualBox: 42430 points [image](https://imgur.com/eduIUkR)
+
+<sub>Software used: sysbench</sub>
+
+
+
+
 ## Todo
 - [X]  Windows 64bit support (Hyper-V + UEFI)
 - [ ]  Machine dashboard (machine list like virtualbox,vmware)
@@ -27,11 +40,11 @@ The compiled executables are available [here](https://github.com/tesla15/teslavm
 - [X]  Guest sound to host
 - [ ]  Internal virtual network
 - [ ]  NAT, Bridged etc. selection of network mode 
-- [ ]  Create virtual disk from app
+- [X]  Create virtual disk from app
 - [X]  Select CD-ROM, virtual disk instead of typing the path
 - [ ]  Selection between VNC and default QEMU window
-- [ ]  USB, BT passtrough 
-- [ ]  Android emulation support
+- [ ]  USB passtrough 
+- [X]  Android emulation support
 - [ ]  Multi monitor support
 - [ ]  Slider of VRAM size
 - [ ]  MacOS support (very hard)
@@ -39,44 +52,47 @@ The compiled executables are available [here](https://github.com/tesla15/teslavm
 - [X]  Optimize code (command builder etc instead of switch,if)
 - [ ]  Tab switching in frontend
 and much more...
+
+## Accelerators
+  - TCG - Tiny Code Generator (TCG), minimal acceleration, used by default. You should not use it for Windows/Linux guest machines.
+  - HAXM - Intel Hardware Accelerated Execution Manager (HAXM), you can't use it on AMD CPU. You should use it for Linux.
+  - Hyper-V - Microsoft hypervisor, you can use it on every CPU which support hyper-v & VT-D,X. You should use it for Windows.
+
 ## FAQ
 
-#### Does it support machine acceleration and graphics acceleration?
+**Q:** Does it support machine acceleration ?
 
-&nbsp;Yes it does on AMD and Intel CPU's with Linux, partially with Windows
+**A:** Yes it does on AMD and Intel CPU's with Linux, partially with Windows (full with Hyper-V)
+##
+**Q:** What guest OS does it support?
 
-#### What guest OS does it support?
+**A:** All you dream about!
+##
+**Q:** Will it support more machines to save than only one?
 
-&nbsp;Currently only linux distros and windows 32bit
+**A:** Yes, we are planning to rework the GUI. We are currently working more on the backend than the frontend.
+##
+**Q:** HAX acceleration makes my machines doesnt launch! 😠
 
-#### Will it support more machines to save than only one?
+**A:** Probably you dont have [HAXM](https://github.com/intel/haxm/releases/tag/v7.7.1) or you have Hyper-V [enabled](https://www.nakivo.com/blog/uninstalling-or-disabling-hyper-v-in-windows-10/).
+##
+**Q:** I cant launch machine with Hyper-V acceleration 😡
 
-&nbsp;Yes, we are planning to rework the GUI. We are currently working more on the backend than the frontend.
+**A:** You have to [install](https://learn.microsoft.com/pl-pl/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v) Hyper-V.
+##
+**Q:** I cant even launch a VM 😡😡
 
-#### HAX acceleration makes my machines doesnt launch! 😠
+**A:** ;Bro. You should check if your CPU supports VT-d/VT-x and if does, check if you have virtualization options enabled in BIOS. If that wasnt your problem you should check error in developer console (F11) or write to us for help (github issues)
+##
+**Q:** My windows VM keeps crashing at loading!
 
-&nbsp;Probably you dont have [HAXM](https://github.com/intel/haxm/releases/tag/v7.7.1) or you have Hyper-V [enabled](https://www.nakivo.com/blog/uninstalling-or-disabling-hyper-v-in-windows-10/).
-
-#### I cant launch machine with Hyper-V acceleration 😡
-&nbsp;You have to [install](https://learn.microsoft.com/pl-pl/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v) Hyper-V.
-
-#### I cant even launch a VM 😡😡
-&nbsp;Bro. You should check if your CPU supports VT-d/VT-x and if does, check if you have virtualization options enabled in BIOS. If that wasnt your problem you should check error in developer console (F11) or write to us for help (tesla#0069)
-
-#### My windows VM keeps crashing at loading!
-&nbsp;Make sure you are using Hyper-V for windows 64/32bit or TCG/HAX for 32bit only.
-
-## Tree
-![tree](https://media.discordapp.net/attachments/945709982425432066/1044312308236685393/image.png)
+**A:** Make sure you are using Hyper-V for windows 64/32bit or TCG/HAX for 32bit only.
+##
 
 ## Screenshot from app
 super ultra mega early alpha frontend dont be scared it will look much better
 ![demo](https://media.discordapp.net/attachments/945709982425432066/1043983709042393131/image.png)
 
-
-## Feedback
-
-If you have any feedback, please reach out to us at tesla#0069
 
 
 ## Authors

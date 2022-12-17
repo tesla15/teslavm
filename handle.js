@@ -6,7 +6,7 @@ var slider = document.getElementById("ramsize");
 var output = document.getElementById("ramsizecur");
 var vdiskc = document.getElementById("vdisksize"); // not used for while
 var vdiskg = document.getElementById("vdiskcur"); // not used for while
-
+console.log("Handler loaded from remote server.");
 var exec = require('child_process').exec;
 var fs = require('fs');
 const os = require("os");
