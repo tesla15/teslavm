@@ -7,7 +7,9 @@
 
 
 
-TeslaVM is graphical user interface made for QEMU for windows usage, since only linux have well working GUI interface for QEMU and its kinda hard and not practical to use i thought that i can make a program like virt-manager.
+TeslaVM is graphical user interface made for QEMU for windows usage, since only linux have well working GUI interface for QEMU, other one's from windows are not practical to use so i thought that i can make a program like virt-manager. 
+
+fun fact: that was random project, turned into serious one
 
 #### You cant use HAXM 7.8.0 for now. (It's not working properly)
 You should use QEMU 20221130, HAXM 7.7.1
@@ -17,9 +19,9 @@ You should use QEMU 20221130, HAXM 7.7.1
 You have to git clone this repository, download nwjs sdk, qemu windows and put them unpacked into their folders. Open project in visual studio code or your favorite editor and run it by `nwjs/nw .` in root repository folder.
 
 #### For personal usage
-The compiled executables are available.
+The compiled executables are available in releases tab.
 
-## Performance
+## Performance 
 #### TeslaVM: 53028 points [image](https://imgur.com/R9UuFTp)
 
 Native (No VM): 52646 points [image](https://imgur.com/R9UuFTp)
@@ -32,6 +34,7 @@ VirtualBox: 42430 points [image](https://imgur.com/eduIUkR)
 
 
 ## Todo
+- [ ]  new design coming...
 - [X]  Windows 64bit support (Hyper-V + UEFI)
 - [ ]  Machine dashboard (machine list like virtualbox,vmware)
 - [X]  Improve frontend
