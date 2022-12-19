@@ -57,7 +57,7 @@ VirtualBox: 42430 points [image](https://imgur.com/eduIUkR)
 and much more...
 
 ## Accelerators
-  - TCG - Tiny Code Generator (TCG), minimal acceleration, used by default. You should not use it for Windows/Linux guest machines.
+  - TCG - Tiny Code Generator (TCG), emulation. You should not use it for Windows/Linux guest machines.
   - HAXM - Intel Hardware Accelerated Execution Manager (HAXM), you can't use it on AMD CPU. You should use it for Linux.
   - Hyper-V - Microsoft hypervisor, you can use it on every CPU which support hyper-v & VT-D,X. You should use it for Windows.
 
