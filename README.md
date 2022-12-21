@@ -101,3 +101,4 @@ super ultra mega early alpha frontend dont be scared it will look much better
 ## Authors
 
 - [@tesla15](https://www.github.com/tesla15)
+- [@arin2115](https://www.github.com/arin2115)
