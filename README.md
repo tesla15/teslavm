@@ -22,13 +22,16 @@ You have to git clone this repository, download nwjs sdk, qemu windows and put t
 The compiled executables are available in releases tab.
 
 ## Performance 
-#### TeslaVM: 53028 points [image](https://imgur.com/R9UuFTp)
-
-Native (No VM): 52646 points [image](https://imgur.com/R9UuFTp)
-
-VirtualBox: 42430 points [image](https://imgur.com/eduIUkR)
-
-<sub>Software used: sysbench</sub>
+```
+├── Linux
+│   └── TeslaVM: 53028 points (https://imgur.com/R9UuFTp)
+│   └── VirtualBox: 42430 points (https://imgur.com/eduIUkR)
+│
+├── Windows
+│   └── TeslaVM: 2655 points (https://browser.geekbench.com/v5/cpu/19502042)
+│   └── VirtualBox: 2407 points (https://browser.geekbench.com/v5/cpu/19492385)
+```
+<sub>Software used: sysbench, geekbench 5</sub>
 
 
 
