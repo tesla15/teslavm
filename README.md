@@ -15,7 +15,7 @@ You should use QEMU 20221130, HAXM 7.7.1
 
 ## Installation
 #### For development
-You have to git clone this repository, download nwjs sdk, qemu windows and put them unpacked into their folders. Open project in visual studio code or your favorite editor and run it by `nwjs/nw .` in root repository folder.
+You have to git clone this repository, download nwjs sdk, qemu windows and put them unpacked into their folders. Open project in visual studio code or your favorite editor, run `npm i ` and run teslavm by `nwjs/nw .` in root repository folder.
 
 #### For personal usage
 The compiled executables are available in releases tab.
