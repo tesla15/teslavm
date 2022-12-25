@@ -37,26 +37,11 @@ The compiled executables are available in releases tab.
 
 
 ## Todo
-- [ ]  new design coming...
-- [X]  Windows 64bit support (Hyper-V + UEFI)
-- [ ]  Machine dashboard (machine list like virtualbox,vmware)
-- [X]  Improve frontend
-- [X]  Select cpu and machine type
-- [ ]  ARM virtualization (will be much better than other virtual machine software)
-- [X]  Guest sound to host
 - [ ]  Internal virtual network
 - [ ]  NAT, Bridged etc. selection of network mode 
-- [X]  Create virtual disk from app
-- [X]  Select CD-ROM, virtual disk instead of typing the path
-- [ ]  Selection between VNC and default QEMU window
+- [ ]  SPICE or own display method
 - [ ]  USB passtrough 
-- [X]  Android emulation support
 - [ ]  Multi monitor support
-- [ ]  Slider of VRAM size
-- [ ]  MacOS support (very hard)
-- [X]  Custom BIOS and maybe EFI
-- [X]  Optimize code (command builder etc instead of switch,if)
-- [ ]  Tab switching in frontend
 and much more...
 
 ## Accelerators
