@@ -1,5 +1,5 @@
 
-# TeslaVM (early alpha)
+# TeslaVM (alpha)
 [![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg)](http://perso.crans.org/besson/LICENSE.html)
 [![Windows](https://badgen.net/badge/icon/windows?icon=windows&label)](https://microsoft.com/windows/)
 [![made-with-javascript](https://img.shields.io/badge/Made%20with-JavaScript-1f425f.svg)](https://www.javascript.com)
@@ -7,54 +7,44 @@
 
 
 
-TeslaVM is graphical user interface made for QEMU for windows usage, since only linux have well working GUI interface for QEMU and its kinda hard and not practical to use i thought that i can make a program like virt-manager.
+TeslaVM is graphical user interface made for QEMU for windows usage, since only linux have well working GUI interface for QEMU, other one's from windows are not practical to use so i thought that i can make a program like virt-manager.&nbsp;&nbsp;&nbsp;
+<sub>fun fact: that was random project, turned into serious one</sub>
 
 #### You cant use HAXM 7.8.0 for now. (It's not working properly)
 You should use QEMU 20221130, HAXM 7.7.1
 
 ## Installation
 #### For development
-You have to git clone this repository, download nwjs sdk, qemu windows and put them unpacked into their folders. Open project in visual studio code or your favorite editor and run it by `nwjs/nw .` in root repository folder.
+You have to git clone this repository, download nwjs sdk, qemu windows and put them unpacked into their folders. Open project in visual studio code or your favorite editor, run `npm i ` and run teslavm by `nwjs/nw .` in root repository folder.
 
 #### For personal usage
-The compiled executables are available.
+The compiled executables are available in releases tab.
 
-## Performance
-#### TeslaVM: 53028 points [image](https://imgur.com/R9UuFTp)
-
-Native (No VM): 52646 points [image](https://imgur.com/R9UuFTp)
-
-VirtualBox: 42430 points [image](https://imgur.com/eduIUkR)
-
-<sub>Software used: sysbench</sub>
+## Performance 
+```
+├── Linux
+│   └── TeslaVM: 53028 points (https://imgur.com/R9UuFTp)
+│   └── VirtualBox: 42430 points (https://imgur.com/eduIUkR)
+│
+├── Windows
+│   └── TeslaVM: 2655 points (https://browser.geekbench.com/v5/cpu/19502042)
+│   └── VirtualBox: 2407 points (https://browser.geekbench.com/v5/cpu/19492385)
+```
+<sub>Software used: sysbench, geekbench 5</sub>
 
 
 
 
 ## Todo
-- [X]  Windows 64bit support (Hyper-V + UEFI)
-- [ ]  Machine dashboard (machine list like virtualbox,vmware)
-- [X]  Improve frontend
-- [X]  Select cpu and machine type
-- [ ]  ARM virtualization (will be much better than other virtual machine software)
-- [X]  Guest sound to host
 - [ ]  Internal virtual network
 - [ ]  NAT, Bridged etc. selection of network mode 
-- [X]  Create virtual disk from app
-- [X]  Select CD-ROM, virtual disk instead of typing the path
-- [ ]  Selection between VNC and default QEMU window
+- [ ]  SPICE or own display method
 - [ ]  USB passtrough 
-- [X]  Android emulation support
 - [ ]  Multi monitor support
-- [ ]  Slider of VRAM size
-- [ ]  MacOS support (very hard)
-- [X]  Custom BIOS and maybe EFI
-- [X]  Optimize code (command builder etc instead of switch,if)
-- [ ]  Tab switching in frontend
 and much more...
 
 ## Accelerators
-  - TCG - Tiny Code Generator (TCG), minimal acceleration, used by default. You should not use it for Windows/Linux guest machines.
+  - TCG - Tiny Code Generator (TCG), emulation. You should not use it for Windows/Linux guest machines.
   - HAXM - Intel Hardware Accelerated Execution Manager (HAXM), you can't use it on AMD CPU. You should use it for Linux.
   - Hyper-V - Microsoft hypervisor, you can use it on every CPU which support hyper-v & VT-D,X. You should use it for Windows.
 
@@ -90,11 +80,12 @@ and much more...
 ##
 
 ## Screenshot from app
-super ultra mega early alpha frontend dont be scared it will look much better
-![demo](https://media.discordapp.net/attachments/945709982425432066/1043983709042393131/image.png)
+alpha frontend
+![demo](https://i.imgur.com/pcSQVzu.png)
 
 
 
 ## Authors
 
 - [@tesla15](https://www.github.com/tesla15)
+- [@arin2115](https://www.github.com/arin2115)
