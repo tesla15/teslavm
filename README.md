@@ -7,8 +7,7 @@
 
 
 
-TeslaVM is graphical user interface made for QEMU for windows usage, since only linux have well working GUI interface for QEMU, other one's from windows are not practical to use so i thought that i can make a program like virt-manager. 
-
+TeslaVM is graphical user interface made for QEMU for windows usage, since only linux have well working GUI interface for QEMU, other one's from windows are not practical to use so i thought that i can make a program like virt-manager.&nbsp;&nbsp;&nbsp;
 <sub>fun fact: that was random project, turned into serious one</sub>
 
 #### You cant use HAXM 7.8.0 for now. (It's not working properly)
@@ -81,8 +80,8 @@ and much more...
 ##
 
 ## Screenshot from app
-super ultra mega early alpha frontend dont be scared it will look much better
-![demo](https://media.discordapp.net/attachments/945709982425432066/1043983709042393131/image.png)
+alpha frontend
+![demo](https://i.imgur.com/pcSQVzu.png)
 
 
 
