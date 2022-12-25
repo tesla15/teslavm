@@ -15,6 +15,7 @@ function destroymachine(guestname) {
             json.splice(editItem, 1);
 
             fsss.writeFileSync(`settings.json`, JSON.stringify(json))
+            location.reload();
         }
     });
 }
