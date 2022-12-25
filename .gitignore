@@ -1,4 +1,4 @@
 qemu/*
 nwjs/*
 tesla.exe
-settings.json
+node_modules/*

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en" style="overflow: hidden;">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>TeslaVM</title>
+    <script src="./node_modules/@6c65726f79/custom-titlebar/lib/index.js"></script>
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abel&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abhaya+Libre&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aboreto&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abyssinica+SIL&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Actor&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Advent+Pro&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aladin&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alata&amp;display=swap">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+</head>
+
+<body id="page-top" onload="readvms()">
+    
+    <div id="edit-vm-overlay">
+        <div id="edit-vm">
+            <div class="container-fluid" style="width: 421px;">
+                <div class="card shadow mb-5">
+                    <div class="card-header py-3">
+                        <p class="text-primary m-0 fw-bold" id="editparag">Editing machine.guestname</p>
+                    </div>
+
+                    <div class="card-body">
+                        <p style="margin-left: 296px;">
+                        <label>
+                            <i class="fas fa-compact-disc" style="margin-left: 11px;font-size: 15px;margin-right: -333px; cursor: pointer;"></i>
+                            <input id="cdrom-input" type="file" style="display:none" onchange="pickfilecdrom()">
+                        </label>
+                        <input type="text" id="cdrom" style="margin-right: -290px;margin-left: -204px;margin-top: -74px;">CD-ROM</p>
+
+
+
+                        <p style="margin-left: -1px;">Hard Drive
+                        <label>
+                            <i class="fas fa-hdd" style="margin-left: 226px;font-size: 15px;margin-right: -246px; cursor: pointer;"></i>
+                            <input id="hdd-input" type="file" style="display:none" onchange="pickfilehdd()">
+                         </label>
+                        <input type="text" id="hdd" style="margin-right: -274px;margin-left: 11px;margin-top: -74px;margin-bottom: 2px;"></p>
+                        <p>Boot order</p>
+                        <div class="dropdown"><button class="btn btn-primary dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" type="button" style="margin-top: -83px;margin-right: 0;font-size: 14px;margin-left: 95px;padding-right: 11px;">Select boot device&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</button>
+                            <div class="dropdown-menu" style="margin-top: -38px;"><a class="dropdown-item" onclick="selecthdd()">Virtual disk</a><a class="dropdown-item" onclick="selectcd()">Virtual CD-ROM</a></div>
+                        </div><button class="btn btn-primary" type="button" style="margin-left: 39.7%;font-size: 15px;" onclick="finishediting()">Finish</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="create-vm-overlay">
+        <div id="create-new-machine-overlay">
+            <!-- Create new machine intro -->
+            <div id="intro-creation">
+                    <div class="d-flex flex-column" id="content-wrapper">
+                        <div class="card shadow mb-5" style="margin-bottom: 20px;margin-top: 15px;width: 809px;height: 454px;">
+                            <div class="card-header py-3" style="height: 55px;">
+                                <p class="text-primary m-0 fw-bold">Create new machine</p>
+                            </div>
+                            <div class="card-body" style="height: 519px;border-color: #ffffff;">
+                                <p style="margin-bottom: 17px;font-size: 22px;text-align: center;">Guest name and system type</p>
+                                <p style="margin-bottom: 36px;">Enter a specific name for your new guest and select type of guest operating system you plan to install onto.</p>
+                                <p style="margin-bottom: 34px;border-top-left-radius: 15px;"><input type="text" id="name-of-guest" style="margin-left: 153px;margin-right: -347px;border-radius: 10px;border-style: solid;border-color: rgba(0,0,0,0.1);">Name of the guest</p>
+                                <p style="width: 108px;font-size: 16px;margin-bottom: 17px;">Guest OS type</p>
+                                <div class="dropdown" style="padding-left: 126px;margin-top: -28px;"><button class="btn btn-primary dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" type="button" style="margin-top: -22px;font-size: 14px;width: 166.375px;margin-left: -2px;margin-bottom: 5px;">Operating systems</button>
+                                    <div class="dropdown-menu" style="margin-top: -13px;"><a class="dropdown-item" onclick="selectwindows();" href="#">Windows</a><a class="dropdown-item" onclick="selectlinux();" href="#">Linux</a></div>
+                                </div>
+                                <p style="margin-top: 17px;width: 126px;">Guest OS version</p>
+                                <div class="dropdown"><button class="btn btn-primary dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" type="button" style="margin-left: 140px;margin-top: -84px;font-size: 14px;">Operating system version</button>
+                                    <div class="dropdown-menu" style="margin-top: -41px;"><a class="dropdown-item" onclick="newerthan7();" href="#">Modern (fast)</a><a class="dropdown-item" onclick="olderthan7();" href="#">Legacy (very slow, support for old OS)</a></div>
+                                </div><button class="btn btn-primary" type="button" onclick="next();" style="margin-left: 711px;margin-top: 40px;">Next</button><button class="btn btn-primary" type="button" onclick="close_vm_overlay()" style="margin-left: 620px;margin-top: -65px;">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End of intro -->
+
+            <!-- Configuration of CPU, RAM -->
+            <div id="cpu-ram-configuration">
+                <div class="card shadow mb-5" style="margin-bottom: 20px;margin-top: 15px;width: 809px;height: 454px;">
+                    <div class="card-header py-3" style="height: 55px;">
+                        <p class="text-primary m-0 fw-bold">Create new machine</p>
+                    </div>
+                    <div class="card-body" style="height: 519px;">
+                        <p style="margin-bottom: 17px;font-size: 22px;text-align: center;">Memory and CPU settings</p>
+                        <p style="margin-bottom: 36px;">Select the amount of memory (RAM) in megabytes to be allocated to the guest.</p>
+                        <p>Recommended memory size is 4096 MB</p>
+
+                        <input id="memslider" min="512" class="form-range" type="range" style="width: 707px;">
+
+                        <p id="ram-ammount" style="width: 80px;margin-left: 717px;margin-top: -30px;">0 MB</p>
+                        <p>Recommended core allocation is 2 - 4</p>
+
+                        <input id="cpuslider" min="1" class="form-range" type="range" style="width: 707px;">
+                        
+                        <p id="core-ammount" style="width: 78px;margin-left: 721px;margin-top: -30px;">1 Core(s)</p>
+                        <button class="btn btn-primary" onclick="next();" type="button" style="margin-left: 711px;margin-top: 61px;">Next</button>
+                        <button class="btn btn-primary" type="button" onclick="close_vm_overlay()" style="margin-left: 620px;margin-top: -65px;">Cancel</button>
+                    </div>
+                </div>
+            </div>
+            <!-- End of CPU,RAM conf -->
+
+            <!-- Optional features -->
+            <div id="optional-features">
+                <div class="card shadow mb-5" style="margin-bottom: 20px;margin-top: 15px;width: 809px;height: 454px;">
+                    <div class="card-header py-3" style="height: 55px;">
+                        <p class="text-primary m-0 fw-bold">Create new machine</p>
+                    </div>
+                    <div class="card-body" style="height: 519px;">
+                        <p style="margin-bottom: 17px;font-size: 22px;text-align: center;padding-bottom: 16px;">Optional features</p>
+                        <p style="width: 162px;">Hardware accelerator</p>
+                        <div class="dropdown"><button class="btn btn-primary dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" type="button" style="margin-left: 165px;margin-top: -81px;font-size: 13px;">Guest acceleration</button>
+                            <div class="dropdown-menu" style="margin-top: -31px;"><a class="dropdown-item" onclick="tcg()" href="#">Tiny Code Generator (Emulation)</a><a class="dropdown-item" onclick="hax()" href="#">HAXM (Virtualization for intel processors, best for Linux)</a><a class="dropdown-item" onclick="hyperv()" href="#"><span style="color: rgb(0, 0, 0);">Virtualization (for AMD/Intel best for Windows)</span><br></a></div>
+                        </div>
+                        <p style="width: 152px;">Graphics accelerator</p>
+                        <div class="dropdown"><button class="btn btn-primary dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" type="button" style="font-size: 13px;margin-left: 165px;margin-top: -81px;">Graphic cards</button>
+                            <div class="dropdown-menu" style="margin-top: -27px;"><a class="dropdown-item" onclick="virtio()" href="#">VirtIO (best for linux)</a><a class="dropdown-item" onclick="vga()" href="#">VGA</a><a class="dropdown-item" onclick="cirrus()" href="#">Cirrus</a><a class="dropdown-item" onclick="qxl()" href="#">QXL (best for windows)</a><a class="dropdown-item" onclick="vmwaresvga()" href="#">SVGA VMware</a></div>
+                        </div>
+                        <!--<div class="form-check"><input class="form-check-input" id="audioforwardcheck" type="checkbox" id="formCheck-1"><label class="form-check-label" for="formCheck-1">Guest to Host audio support</label></div><-->
+                        <button class="btn btn-primary" onclick="next();" type="button" style="margin-left: 711px;margin-top: 112px;">Finish</button>
+                        <button class="btn btn-primary" type="button" onclick="close_vm_overlay()" style="margin-left: 620px;margin-top: -65px;">Cancel</button>
+                    </div>
+                </div>
+            </div>
+            <!-- End of optional features -->
+        </div>
+    </div>
+
+    <div id="wrapper">
+        <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0" style="height: 787.359px;">
+            <div class="container-fluid d-flex flex-column p-0"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
+                    <div class="sidebar-brand-icon rotate-n-15"></div>
+                    <div class="sidebar-brand-text mx-3"><span>teslavm</span></div>
+                </a>
+                <hr class="sidebar-divider my-0">
+                <ul class="navbar-nav text-light" id="accordionSidebar">
+                    <li class="nav-item"><a class="nav-link" href="/index.html"><i class="fas fa-tachometer-alt"></i><span>&nbsp;Dashboard</span></a></li>
+                    <li class="nav-item"><a class="nav-link active" href="/vms.html"><i class="fas fa-server"></i><span>&nbsp;Virtual machines</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="/storage.html"><i class="far fa-hdd"></i><span>&nbsp;Virtual storage</span></a></li>
+                    <li class="nav-item"></li>
+                    <li class="nav-item"></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="d-flex flex-column" id="content-wrapper" style="padding-top: 15px;">
+            <div id="content">
+                <div class="container-fluid">
+                    <div class="row mb-3">
+                        <div class="col-lg-8">
+                            <div class="row mb-3 d-none">
+                                <div class="col">
+                                    <div class="card text-white bg-primary shadow">
+                                        <div class="card-body">
+                                            <div class="row mb-2">
+                                                <div class="col">
+                                                    <p class="m-0">Peformance</p>
+                                                    <p class="m-0"><strong>65.2%</strong></p>
+                                                </div>
+                                                <div class="col-auto"><i class="fas fa-rocket fa-2x"></i></div>
+                                            </div>
+                                            <p class="text-white-50 small m-0"><i class="fas fa-arrow-up"></i>&nbsp;5% since last month</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card text-white bg-success shadow">
+                                        <div class="card-body">
+                                            <div class="row mb-2">
+                                                <div class="col">
+                                                    <p class="m-0">Peformance</p>
+                                                    <p class="m-0"><strong>65.2%</strong></p>
+                                                </div>
+                                                <div class="col-auto"><i class="fas fa-rocket fa-2x"></i></div>
+                                            </div>
+                                            <p class="text-white-50 small m-0"><i class="fas fa-arrow-up"></i>&nbsp;5% since last month</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="card shadow mb-3" style="width: 914.656px;">
+                                        <div class="card-header py-3">
+                                            <p class="text-primary m-0 fw-bold">Virtual Machines<button class="btn btn-primary btn-sm" type="submit" id="create-new-vm" onclick="createnewvm()" style="margin-left: 662px;margin-top: 0px;font-size: 14px;height: 35px;padding: 4px 8px;">Create new</button></p>
+                                        </div>
+                                        <div class="card-body" style="height: 520px;">
+                                            <div class="table-responsive">
+                                                <table id="vmtable" class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th style="width: 348.469px;">Guest name</th>
+                                                            <th style="width: 95.516px;text-align: center;">CPUs</th>
+                                                            <th style="width: 129.516px;text-align: center;">Memory</th>
+                                                            <th style="text-align: center;">Actions</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/js/theme.js"></script>
+    <script src="titlebar.js"></script>
+    <script src="/assets/bootstrap/js/handlers/vms/readvm.js"></script>
+    <script src="/assets/bootstrap/js/handlers/vms/dropdown.js"></script>
+    <script src="/assets/bootstrap/js/handlers/vms/checkbox.js"></script>
+    <script src="/assets/bootstrap/js/handlers/vms/creation/creation.js"></script>
+    <script src="/assets/bootstrap/js/handlers/vms/inputs.js"></script>
+    <script src="/assets/bootstrap/js/handlers/vms/sliders.js"></script>
+    <script src="/assets/bootstrap/js/handlers/vms/createnew.js"></script>
+    <script src="/assets/bootstrap/js/handlers/vms/creation/next.js"></script>
+    <script src="/assets/bootstrap/js/handlers/vms/runvm.js"></script>
+    <script src="/assets/bootstrap/js/handlers/vms/editvm.js"></script>
+    <script src="/assets/bootstrap/js/handlers/vms/destroy.js"></script>
+</body>
+</html>
