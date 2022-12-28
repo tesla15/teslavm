@@ -60,7 +60,7 @@
     <div id="create-vm-overlay">
         <div id="create-new-machine-overlay">
             <!-- Create new machine intro -->
-            <div id="intro-creation">
+            <div id="intro-creation" style="display: block;">
                     <div class="d-flex flex-column" id="content-wrapper">
                         <div class="card shadow mb-5" style="margin-bottom: 20px;margin-top: 15px;width: 809px;height: 454px;">
                             <div class="card-header py-3" style="height: 55px;">
@@ -72,12 +72,10 @@
                                 <p style="margin-bottom: 34px;border-top-left-radius: 15px;"><input type="text" id="name-of-guest" style="margin-left: 153px;margin-right: -347px;border-radius: 10px;border-style: solid;border-color: rgba(0,0,0,0.1);">Name of the guest</p>
                                 <p style="width: 108px;font-size: 16px;margin-bottom: 17px;">Guest OS type</p>
                                 <div class="dropdown" style="padding-left: 126px;margin-top: -28px;"><button class="btn btn-primary dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" type="button" style="margin-top: -22px;font-size: 14px;width: 166.375px;margin-left: -2px;margin-bottom: 5px;">Operating systems</button>
-                                    <div class="dropdown-menu" style="margin-top: -13px;"><a class="dropdown-item" onclick="selectwindows();" href="#">Windows</a><a class="dropdown-item" onclick="selectlinux();" href="#">Linux</a></div>
+                                    <div class="dropdown-menu" style=""><a class="dropdown-item" onclick="selectwindows();" href="#">Windows</a><a class="dropdown-item" onclick="selectlinux();" href="#">Linux</a></div>
                                 </div>
-                                <p style="margin-top: 17px;width: 126px;">Guest OS version</p>
-                                <div class="dropdown"><button class="btn btn-primary dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" type="button" style="margin-left: 140px;margin-top: -84px;font-size: 14px;">Operating system version</button>
-                                    <div class="dropdown-menu" style="margin-top: -41px;"><a class="dropdown-item" onclick="newerthan7();" href="#">Modern (fast)</a><a class="dropdown-item" onclick="olderthan7();" href="#">Legacy (very slow, support for old OS)</a></div>
-                                </div><button class="btn btn-primary" type="button" onclick="next();" style="margin-left: 711px;margin-top: 40px;">Next</button><button class="btn btn-primary" type="button" onclick="close_vm_overlay()" style="margin-left: 620px;margin-top: -65px;">Cancel</button>
+                                
+                                <button class="btn btn-primary" type="button" onclick="next();" style="margin-left: 711px;margin-top: 122px;">Next</button><button class="btn btn-primary" type="button" onclick="close_vm_overlay()" style="margin-left: 620px;margin-top: -65px;">Cancel</button>
                             </div>
                         </div>
                     </div>

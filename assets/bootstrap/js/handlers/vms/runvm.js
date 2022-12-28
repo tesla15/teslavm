@@ -1,3 +1,5 @@
+const { Console } = require('console');
+
 var exec = require('child_process').exec;
 
 
@@ -27,24 +29,9 @@ async function runguest(name, ostype, osver, ram, cpu, accel, gpu, border) {
             console.log(hda)
             console.log(cdrom)
 
+            //generate final command
 
-
-            if (1+1==3) { //disable uefi for a while
-                if (finalaccel == "hax") {
-                    if (cores > 2) {
-                        alert("You cant use more cores than 2 on UEFI HAXM")
-                    } else {
-                        command = command_base + `.exe -name ${name.replace(/\s+/g, '')} -device AC97 -usbdevice tablet -display gtk -machine ${osver} -cpu Skylake-Client-IBRS,hv_crash,hv_frequencies,hv_relaxed,hv_reset,hv_runtime,hv_spinlocks=0x1fff,hv_time,hv_vapic -m ${ram}M -smp sockets=${cpu},cores=1,threads=1 -vga ${gpu} -accel ${accel} -bios ../ovmf.fd`;
-                    }
-                } else {
-                    command = command_base + `.exe -name ${name.replace(/\s+/g, '')} -device AC97 -usbdevice tablet -display gtk -machine ${osver} -cpu Skylake-Client-IBRS,hv_crash,hv_frequencies,hv_relaxed,hv_reset,hv_runtime,hv_spinlocks=0x1fff,hv_time,hv_vapic -m ${ram}M -smp sockets=${cpu},cores=1,threads=1 -vga ${gpu} -accel ${accel} -bios ../ovmf.fd`;
-                    console.log("uefi no hax")
-                }
-            } else {
-                console.log("no uefi")
-                command = command_base + `.exe -name ${name.replace(/\s+/g, '')} -device AC97 -usbdevice tablet -display gtk -machine ${osver} -cpu Skylake-Client-IBRS,hv_crash,hv_frequencies,hv_relaxed,hv_reset,hv_runtime,hv_spinlocks=0x1fff,hv_time,hv_vapic -m ${ram}M -smp sockets=1,cores=${cpu},threads=1 -vga ${gpu} -accel ${accel} ${border}`;
-            }
-
+            command = command_base + `.exe -name ${name.replace(/\s+/g, '')} ${border} -smbios type=0,vendor=teslavm,version=2.1 -smbios type=1,manufacturer=teslavm,product=teslavm,version=2.1 -device AC97 -net user,hostfwd=tcp::3001-:3389 -net nic -usbdevice tablet -display sdl -machine q35 -cpu Skylake-Client-IBRS,hv_crash,hv_frequencies,hv_relaxed,hv_reset,hv_runtime,hv_spinlocks=0x1fff,hv_time,hv_vapic -m ${ram}M -smp ${cpu} -vga none -vga ${gpu} -accel ${accel}`;
 
             console.log(hda)
             console.log(cdrom)
@@ -57,7 +44,7 @@ async function runguest(name, ostype, osver, ram, cpu, accel, gpu, border) {
                 command = command + ` -cdrom ${cdrom}`
             } else if (hda != "" ) {
                 console.log("Hard Disk attached, building command with it")
-                command = command + ` -hda ${hda}`
+                command = command + ` -hda ${hda} `
             } else {
                 console.log("Nothing attached")
                 command = command
@@ -74,8 +61,13 @@ async function runguest(name, ostype, osver, ram, cpu, accel, gpu, border) {
                         alert("There are two options, you dont have HAXM installed or you have Hyper-V feature enabled. (or you are using AMD cpu)")
                     } else if (stderr.includes("WHPX: No accelerator found")) {
                         alert("You have to enable Hyper-V feature to use Hyper-V.")
+                    } else if (stderr.includes("whpx: injection failed")) {
+                        console.log(stderr)
+                    } else if(stderr == "" || stderr == undefined) {
+                        console.log("empty stderr")
                     } else {
-                        alert(stderr);
+                        alert(stderr)
+                        console.log(stderr)
                     }
                 }
             });

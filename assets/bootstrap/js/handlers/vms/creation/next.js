@@ -16,7 +16,7 @@ function next() {
             break;
 
         case 1: //Configuration of CPU RAM
-            if (ostype == undefined || osver == undefined  || guestname == "") {
+            if (ostype == undefined || guestname == "") {
                 alert("Make sure you've filled it all out.");
                 break;
             }  
