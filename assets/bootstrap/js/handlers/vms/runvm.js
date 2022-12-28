@@ -31,7 +31,7 @@ async function runguest(name, ostype, osver, ram, cpu, accel, gpu, border) {
 
             //generate final command
 
-            command = command_base + `.exe -name ${name.replace(/\s+/g, '')} ${border} -smbios type=0,vendor=teslavm,version=2.1 -smbios type=1,manufacturer=teslavm,product=teslavm,version=2.1 -device AC97 -net user,hostfwd=tcp::3001-:3389 -net nic -usbdevice tablet -display sdl -machine q35 -cpu Skylake-Client-IBRS,hv_crash,hv_frequencies,hv_relaxed,hv_reset,hv_runtime,hv_spinlocks=0x1fff,hv_time,hv_vapic -m ${ram}M -smp ${cpu} -vga none -vga ${gpu} -accel ${accel}`;
+            command = command_base + `.exe -name ${name.replace(/\s+/g, '')} -bios bios.BIN ${border} -smbios type=0,vendor=teslavm,version=2.1 -smbios type=1,manufacturer=teslavm,product=teslavm,version=2.1 -device AC97 -net user,hostfwd=tcp::3001-:3389 -net nic -usbdevice tablet -display sdl -machine q35 -cpu Skylake-Client-IBRS,hv_crash,hv_frequencies,hv_relaxed,hv_reset,hv_runtime,hv_spinlocks=0x1fff,hv_time,hv_vapic -m ${ram}M -smp ${cpu} -vga none -vga ${gpu} -accel ${accel}`;
 
             console.log(hda)
             console.log(cdrom)

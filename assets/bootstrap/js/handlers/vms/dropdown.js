@@ -57,5 +57,5 @@ function qxl() {
 }
 
 function vmwaresvga() {
-    gpuaccel = "vmwaresvga"
+    gpuaccel = "vmware"
 }
