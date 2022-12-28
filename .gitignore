@@ -2,3 +2,4 @@ qemu/*
 nwjs/*
 tesla.exe
 node_modules/*
+teslavm.*
