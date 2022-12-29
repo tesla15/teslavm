@@ -5,11 +5,11 @@ var gpuaccel;
 var bootorder;
 
 function selecthdd() {
-    bootorder = "c";
+    bootorder = "-boot c";
 }
 
 function selectcd() {
-    bootorder = "d";
+    bootorder = "-boot d";
 }
 
 function selectwindows() {

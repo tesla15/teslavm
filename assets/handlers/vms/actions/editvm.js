@@ -8,7 +8,7 @@ function pickfilehdd() {
 
 function editvm(guestname) {
     console.log(guestname, "is being edited.")
-
+    
     fsss.readFile('settings.json', {encoding: 'utf8', flag: 'r'}, function(err, data) {
         if(err) console.log(err);
         else {
@@ -57,7 +57,11 @@ function finishediting() {
             console.log(editItem)
             json[editItem].cdrom = document.getElementById("cdrom").value;
             json[editItem].hdd = document.getElementById("hdd").value;
-            json[editItem].bootorder = "-boot " + bootorder;
+            if (bootorder == "") {
+                json[editItem].bootorder = "";
+            } else {
+                json[editItem].bootorder = bootorder;
+            }
             fsss.writeFileSync(`settings.json`, JSON.stringify(json))
         }
     });

@@ -69,6 +69,9 @@
    border-style: solid!important;
    border-color: rgba(0,0,0,0.1)!important;
    margin-bottom: -5px;
+   padding-top: 3px;
+   padding-bottom: 3px;
+   text-indent: 4px;
 }
 
 #name-of-guest:focus {
@@ -91,3 +94,16 @@
 }
 
 i {cursor: pointer;}
+
+#dangeralert {
+   display: none;
+   width: 227px;
+   height: 55px;
+   margin-top: 12px;
+   margin-left: 539px;
+   margin-bottom: 10px;
+}
+
+@-webkit-keyframes fadeOut{100%{opacity:1}0%{opacity:0}}
+
+* {animation: fadeIn 0.2s}

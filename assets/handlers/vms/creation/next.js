@@ -17,7 +17,7 @@ function next() {
 
         case 1: //Configuration of CPU RAM
             if (ostype == undefined || guestname == "") {
-                alert("Make sure you've filled it all out.");
+                textalert("Did you fill up everything?") 
                 break;
             }  
             document.getElementById("cpuslider").value = "1";  document.getElementById("core-ammount").innerHTML = "1 Core(s)"
@@ -32,7 +32,7 @@ function next() {
 
         case 2: //Optional features
             if (cpucores == undefined || ramammount == undefined) {
-                alert("Make sure you've filled it all out.");
+                textalert("Did you fill up everything?") 
                 break;
             }
             document.getElementById("intro-creation").style = "display: none;"
@@ -44,7 +44,7 @@ function next() {
         case 3: //Create json
             if (accel == undefined ||
                 gpuaccel == undefined) {
-                alert("Make sure you've filled it all out.");
+                textalert("Did you fill up everything?") 
                 break;
             }  
             document.getElementById("intro-creation").style = "display: none;"

@@ -53,7 +53,7 @@ function readvms() {
                 c1.className = cc1; var c1c = document.querySelector(`.` + cc1); c1c.innerHTML = `${machine.guestname}`
                 c2.className = cc2; var c2c = document.querySelector(`.` + cc2); c2c.innerHTML = `<center>${machine.cpu}</center>`
                 c3.className = cc3; var c3c = document.querySelector(`.` + cc3); c3c.innerHTML = `<center>${machine.ram} MB</center>`
-                c4.className = cc4; var c4c = document.querySelector(`.` + cc4); c4c.innerHTML = `<center><a style='cursor:pointer;' onclick='runguest("${machine.guestname}", "${machine.ostype}", "${machine.osver}", "${machine.ram}", "${machine.cpu}", "${machine.accel}", "${machine.gpu}","${machine.bootorder}" )'>Launch</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a style="cursor:pointer;" onclick='editvm("${machine.guestname}")'>Edit</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a style="color: rgb(255, 69, 69); cursor:pointer;" onclick="destroymachine('${machine.guestname}');">Destroy</a></center>`
+                c4.className = cc4; var c4c = document.querySelector(`.` + cc4); c4c.innerHTML = `<center><i class="fas fa-play" style='cursor:pointer;' onclick='runguest("${machine.guestname}", "${machine.ostype}", "${machine.osver}", "${machine.ram}", "${machine.cpu}", "${machine.accel}", "${machine.gpu}","${machine.bootorder}" )'></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i style="cursor:pointer;" class="fas fa-edit" onclick='editvm("${machine.guestname}")'></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-trash" style="color: rgb(255, 69, 69); cursor:pointer;" onclick="destroymachine('${machine.guestname}');"></i></center>`
             })
         }
     });

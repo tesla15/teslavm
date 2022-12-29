@@ -59,6 +59,9 @@
 
     <div id="create-vm-overlay">
         <div id="create-new-machine-overlay">
+            <div class="alert alert-danger" id="dangeralert" role="alert">
+                <span id="alertext">Danger kurwo</span>
+              </div>
             <!-- Create new machine intro -->
             <div id="intro-creation" style="display: block;">
                     <div class="d-flex flex-column" id="content-wrapper">
@@ -218,19 +221,21 @@
             </div>
         </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="/assets/js/theme.js"></script>
+    <script src="/assets/bootstrap/js/theme.js"></script>
     <script src="titlebar.js"></script>
-    <script src="/assets/bootstrap/js/handlers/vms/readvm.js"></script>
-    <script src="/assets/bootstrap/js/handlers/vms/dropdown.js"></script>
-    <script src="/assets/bootstrap/js/handlers/vms/checkbox.js"></script>
-    <script src="/assets/bootstrap/js/handlers/vms/creation/creation.js"></script>
-    <script src="/assets/bootstrap/js/handlers/vms/inputs.js"></script>
-    <script src="/assets/bootstrap/js/handlers/vms/sliders.js"></script>
-    <script src="/assets/bootstrap/js/handlers/vms/createnew.js"></script>
-    <script src="/assets/bootstrap/js/handlers/vms/creation/next.js"></script>
-    <script src="/assets/bootstrap/js/handlers/vms/runvm.js"></script>
-    <script src="/assets/bootstrap/js/handlers/vms/editvm.js"></script>
-    <script src="/assets/bootstrap/js/handlers/vms/destroy.js"></script>
+    <script src="/assets/handlers/vms/readvm.js"></script>
+    <script src="/assets/handlers/vms/elements/dropdowns.js"></script>
+    <script src="/assets/handlers/vms/elements/checkboxs.js"></script>
+    <script src="/assets/handlers/vms/creation/creation.js"></script>
+    <script src="/assets/handlers/vms/elements/inputs.js"></script>
+    <script src="/assets/handlers/vms/elements/sliders.js"></script>
+    <script src="/assets/handlers/vms/creation/createnew.js"></script>
+    <script src="/assets/handlers/vms/creation/next.js"></script>
+    <script src="/assets/handlers/vms/actions/runvm.js"></script>
+    <script src="/assets/handlers/vms/actions/editvm.js"></script>
+    <script src="/assets/handlers/vms/actions/destroy.js"></script>
+    <script src="/assets/handlers/user/alert.js"></script>
 </body>
 </html>
