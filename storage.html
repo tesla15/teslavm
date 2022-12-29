@@ -21,6 +21,26 @@
 </head>
 
 <body id="page-top">
+    <nav style="-webkit-app-region: drag" id="menu-bar">
+        <span>TeslaVM</span>
+        <div class="window-controls">
+          <i class="window-control-minimize"></i>
+          <i class="window-control-close"></i>
+        </div>
+        <script>
+             let controls = [
+                'minimize',
+                'close'
+            ];
+
+            controls.forEach(function (control) {
+            let button = document.getElementsByClassName('window-control-' + control)[0];
+            button.addEventListener('click', function (evt) {
+                nw.Window.get()[control]();
+            });
+            });
+        </script>
+      </nav>
     <div id="wrapper">
         <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0" style="height: 787.359px;">
             <div class="container-fluid d-flex flex-column p-0"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
@@ -111,17 +131,6 @@
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="/assets/js/theme.js"></script>
-    <script src="titlebar.js"></script>
-    <!-- Auto reload on file change detect -->
-    <script>
-      var path = './',
-        fs = require('fs');
-      fs.watch(path, function() {
-        if (location) location.reload();
-      });
-      </script>
-      <!--End-->
+    <script type="text/javascript" src="https://livejs.com/live.js"></script> <!-- live reload -->
 </body>
-
 </html>

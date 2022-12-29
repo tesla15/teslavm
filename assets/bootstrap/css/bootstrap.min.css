@@ -89,8 +89,8 @@
 
 #edit-vm {
    position: absolute;
-   top: 148px;
-   left: 464px;
+   top: 16px!important;
+   left: 257px!important;
 }
 
 i {cursor: pointer;}
@@ -106,4 +106,110 @@ i {cursor: pointer;}
 
 @-webkit-keyframes fadeOut{100%{opacity:1}0%{opacity:0}}
 
-* {animation: fadeIn 0.2s}
+* {animation: fadeIn 0.3s;}
+
+*:focus {
+   outline: none;
+}
+
+body {
+   background-color: rgb(200,200,200);
+}
+
+#menu-bar {
+   font-family: Segoe WPC, Segoe UI, sans-serif;
+   font-size: 15px;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   background: #fff;
+   height: 35px;
+   padding: 0px 0px 0px 9px;
+   -webkit-app-region: drag;
+}
+
+.window-controls {
+height: 100%;
+font-size: 0px;
+-webkit-app-region: no-drag;
+--window-control-bg: #fff;
+}
+[class^="window-control-"] {
+display: inline-flex;
+justify-content: center;
+align-items: center;
+background: #fff;
+width: 35px;
+height: 100%;
+border: 0px;
+margin: 0px;
+padding: 0px;
+font-size: 15px;
+font-style: normal;
+cursor: default;
+vertical-align: top;
+}
+
+.window-control-restore:hover:before,
+.window-control-restore:hover:after,
+.window-control-maximize:hover:after,
+.window-controls i:hover {
+background: #CCC;
+}
+.window-control-restore:active:before,
+.window-control-restore:active:after,
+.window-control-maximize:active:after,
+.window-controls i:active {
+background: #BBB;
+}
+
+.window-control-minimize:before,
+.window-control-restore:before,
+.window-control-restore:after,
+.window-control-maximize:after,
+.window-control-close:before,
+.window-control-close:after {
+content: '';
+display: block;
+width: 12px;
+height: 12px;
+border-width: 0px;
+border-style: solid;
+border-color: #000;
+}
+
+.window-control-minimize:before {
+border-bottom-width: 1px;
+}
+
+.window-control-restore:before,
+.window-control-restore:after,
+.window-control-maximize:after {
+background: var(--window-control-bg);
+border-width: 1px;
+z-index: 2;
+}
+.window-control-restore:before {
+position: absolute;
+top: 8px;
+margin-left: 4px;
+}
+
+.window-control-close {
+position: relative;
+}
+.window-control-close:before,
+.window-control-close:after {
+position: absolute;
+top: 12px;
+left: 17px;
+width: 1px;
+border-left-width: 1px;
+}
+.window-control-close:before {
+transform: rotate(45deg);
+}
+.window-control-close:after {
+transform: rotate(-45deg);
+}
+

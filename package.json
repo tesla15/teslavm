@@ -9,9 +9,8 @@
     "resizable": false
   },
   "dependencies": {
-    "@6c65726f79/custom-titlebar": "^0.9.1",
-    "alertifyjs": "^1.13.1",
     "child_process": "^1.0.2",
+    "gulp": "^4.0.2",
     "node-os-utils": "^1.3.7",
     "os": "^0.1.2",
     "systeminformation": "^5.16.6"
