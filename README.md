@@ -37,7 +37,8 @@ The compiled executables are available in releases tab.
 ![image](https://user-images.githubusercontent.com/117595540/210113771-dc6acd62-7dee-4892-b10b-7ce88ebb64bc.png)
 
 ## My windows does not see my disk!
-Select a driver. (mounted by default in hyper-v machines)
+Select a driver. (mounted by default in hyper-v machines)<br>
+Also it is very recommended to install virtio guest drivers after you install your Windows (for QXL GPU, Ethernet).
 
 ![image](https://user-images.githubusercontent.com/117595540/210115596-0ce4b690-c472-4f56-bfa1-3ee146bd3837.png)
 
@@ -52,7 +53,6 @@ Select a driver. (mounted by default in hyper-v machines)
 and much more...
 
 ## Accelerators
-  - TCG - Tiny Code Generator (TCG), emulation. You should not use it for Windows/Linux guest machines.
   - HAXM - Intel Hardware Accelerated Execution Manager (HAXM), you can't use it on AMD CPU. You should use it for Linux.
   - Hyper-V - Microsoft hypervisor, you can use it on every CPU which support hyper-v & VT-D,X. You should use it for Windows.
 
@@ -65,10 +65,6 @@ and much more...
 **Q:** What guest OS does it support?
 
 **A:** All you dream about!
-##
-**Q:** Will it support more machines to save than only one?
-
-**A:** Yes, we are planning to rework the GUI. We are currently working more on the backend than the frontend.
 ##
 **Q:** HAX acceleration makes my machines doesnt launch! 😠
 
@@ -84,7 +80,7 @@ and much more...
 ##
 **Q:** My windows VM keeps crashing at loading!
 
-**A:** Make sure you are using Hyper-V for windows 64/32bit or TCG/HAX for 32bit only.
+**A:** Make sure you are using Hyper-V for windows 64/32bit or HAX for 32bit only.
 ##
 
 ## Screenshot from app
