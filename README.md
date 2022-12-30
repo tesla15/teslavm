@@ -52,7 +52,6 @@ Select a driver. (mounted by default in hyper-v machines)
 and much more...
 
 ## Accelerators
-  - TCG - Tiny Code Generator (TCG), emulation. You should not use it for Windows/Linux guest machines.
   - HAXM - Intel Hardware Accelerated Execution Manager (HAXM), you can't use it on AMD CPU. You should use it for Linux.
   - Hyper-V - Microsoft hypervisor, you can use it on every CPU which support hyper-v & VT-D,X. You should use it for Windows.
 
@@ -80,7 +79,7 @@ and much more...
 ##
 **Q:** My windows VM keeps crashing at loading!
 
-**A:** Make sure you are using Hyper-V for windows 64/32bit or TCG/HAX for 32bit only.
+**A:** Make sure you are using Hyper-V for windows 64/32bit or HAX for 32bit only.
 ##
 
 ## Screenshot from app
