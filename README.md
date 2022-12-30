@@ -66,10 +66,6 @@ and much more...
 
 **A:** All you dream about!
 ##
-**Q:** Will it support more machines to save than only one?
-
-**A:** Yes, we are planning to rework the GUI. We are currently working more on the backend than the frontend.
-##
 **Q:** HAX acceleration makes my machines doesnt launch! 😠
 
 **A:** Probably you dont have [HAXM](https://github.com/intel/haxm/releases/tag/v7.7.1) or you have Hyper-V [enabled](https://www.nakivo.com/blog/uninstalling-or-disabling-hyper-v-in-windows-10/).
