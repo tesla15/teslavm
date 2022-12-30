@@ -37,7 +37,8 @@ The compiled executables are available in releases tab.
 ![image](https://user-images.githubusercontent.com/117595540/210113771-dc6acd62-7dee-4892-b10b-7ce88ebb64bc.png)
 
 ## My windows does not see my disk!
-Select a driver.
+Select a driver. (mounted by default in hyper-v machines)
+
 ![image](https://user-images.githubusercontent.com/117595540/210115596-0ce4b690-c472-4f56-bfa1-3ee146bd3837.png)
 
 
