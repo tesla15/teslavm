@@ -85,6 +85,7 @@
    outline: none;
 }
 
+.sidebar { margin-top: -36px; }
 
 
 #edit-vm {
@@ -126,6 +127,8 @@ body {
    height: 35px;
    padding: 0px 0px 0px 9px;
    -webkit-app-region: drag;
+   width: 968px;
+   margin-left: 224px;
 }
 
 .window-controls {

@@ -5,7 +5,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>TeslaVM</title>
-    <script src="./node_modules/@6c65726f79/custom-titlebar/lib/index.js"></script>
     <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee&amp;display=swap">
@@ -21,9 +20,9 @@
 </head>
 
 
-<body id="main page-top" onload="readvms()">
+<body id="page-top" onload="readvms(); document.getElementById('titletext').innerHTML = `Welcome ${os.userInfo().username}!`">
     <nav style="-webkit-app-region: drag" id="menu-bar">
-        <span>TeslaVM</span>
+        <a style="flex-grow: 1; text-align: center;" id="titletext"></a>
         <div class="window-controls">
           <i class="window-control-minimize"></i>
           <i class="window-control-close"></i>
@@ -141,7 +140,7 @@
                             <p style="margin-bottom: 17px;font-size: 22px;text-align: center;padding-bottom: 16px;">Optional features</p>
                             <p style="width: 162px;">Hardware accelerator</p>
                             <div class="dropdown"><button class="btn btn-primary dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" type="button" style="margin-left: 165px;margin-top: -81px;font-size: 13px;">Guest acceleration</button>
-                                <div class="dropdown-menu" style="margin-top: -31px;"><a class="dropdown-item" onclick="tcg()" href="#">Tiny Code Generator (Emulation)</a><a class="dropdown-item" onclick="hax()" href="#">HAXM (Virtualization for intel processors, best for Linux)</a><a class="dropdown-item" onclick="hyperv()" href="#"><span style="color: rgb(0, 0, 0);">Hyper-V (for AMD/Intel best for Windows)</span><br></a></div>
+                                <div class="dropdown-menu" style="margin-top: -31px;"><a class="dropdown-item" onclick="hax()" href="#">HAXM (Virtualization for intel processors, best for Linux)</a><a class="dropdown-item" onclick="hyperv()" href="#"><span style="color: rgb(0, 0, 0);">Hyper-V (for AMD/Intel best for Windows)</span><br></a></div>
                             </div>
                             <p style="width: 152px;">Graphics accelerator</p>
                             <div class="dropdown"><button class="btn btn-primary dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" type="button" style="font-size: 13px;margin-left: 165px;margin-top: -81px;">Graphic cards</button>

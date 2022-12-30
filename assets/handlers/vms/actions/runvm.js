@@ -29,10 +29,24 @@ async function runguest(name, ostype, osver, ram, cpu, accel, gpu, border) {
             console.log(hda)
             console.log(cdrom)
 
+            cdrom = "C:\\Users\\WinISO\\Downloads\\win8.1.iso"
+
             //generate final command
+            if (accel == "whpx")  { //gen 2
+                var cpuc = "-cpu Skylake-Client-IBRS,hv_crash,hv_frequencies,hv_relaxed,hv_reset,hv_runtime,hv_spinlocks=0x1fff,hv_time,hv_vapic"
+                var uefi = "-bios ../ovmf.fd"
+                var smbios = "-smbios type=0,vendor=teslavm,version=2.1 -smbios type=1,manufacturer=teslavm,product=teslavm,version=2.1"
+                var portforward = "-net user,hostfwd=tcp::3001-:3389 -net nic"
+                command = command_base + `.exe -name ${name.replace(/\s+/g, '')} ${border} ${cpuc} ${uefi} ${smbios} ${portforward} -device AC97 -usbdevice tablet -display sdl -machine q35  -m ${ram}M -smp ${cpu} -vga none -vga ${gpu} -accel ${accel}`;
+            }
 
-            command = command_base + `.exe -name ${name.replace(/\s+/g, '')} ${border} -smbios type=0,vendor=teslavm,version=2.1 -smbios type=1,manufacturer=teslavm,product=teslavm,version=2.1 -device AC97 -net user,hostfwd=tcp::3001-:3389 -net nic -usbdevice tablet -display sdl -machine q35 -cpu Skylake-Client-IBRS,hv_crash,hv_frequencies,hv_relaxed,hv_reset,hv_runtime,hv_spinlocks=0x1fff,hv_time,hv_vapic -m ${ram}M -smp ${cpu} -vga none -vga ${gpu} -accel ${accel}`;
-
+            if (accel == "hax") {//gen 1 (hax does not support gen 2 yet)
+                var cpuc = "-cpu Skylake-Client-IBRS"
+                var uefi = ""
+                var smbios = "-smbios type=0,vendor=teslavm,version=2.1 -smbios type=1,manufacturer=teslavm,product=teslavm,version=2.1"
+                var portforward = ""
+                command = command_base + `.exe -name ${name.replace(/\s+/g, '')} -boot menu=on ${border} ${cpuc} ${uefi} ${smbios} ${portforward} -device AC97 -usbdevice tablet -display sdl -machine q35  -m ${ram}M -smp ${cpu} -vga none -vga ${gpu} -accel ${accel}`;
+            }
             console.log(hda)
             console.log(cdrom)
 
@@ -41,7 +55,7 @@ async function runguest(name, ostype, osver, ram, cpu, accel, gpu, border) {
                 command = command + ` -hda ${hda} -cdrom ${cdrom}`
             } else if (cdrom != "") {
                 console.log("CD-ROM attached, building command with it.")
-                command = command + ` -cdrom ${cdrom}`
+                command = command + ` -drive id=cdrom0,if=none,format=raw,readonly=on,file=${cdrom} -device virtio-scsi-pci,id=scsi0 -device scsi-cd,bus=scsi0.0,drive=cdrom0`
             } else if (hda != "" ) {
                 console.log("Hard Disk attached, building command with it")
                 command = command + ` -hda ${hda} `
@@ -57,17 +71,16 @@ async function runguest(name, ostype, osver, ram, cpu, accel, gpu, border) {
                 if (stderr.includes("warning") || stderr.includes("WARNING")) {
                     //ignore
                 } else {
-                    if (stderr.includes("No accelerator found")) {
+                    if (stderr.includes("Open HAX")) {
                         alert("There are two options, you dont have HAXM installed or you have Hyper-V feature enabled. (or you are using AMD cpu)")
-                    } else if (stderr.includes("WHPX: No accelerator found")) {
+                    } else if (stderr.includes("hr=00000000")) {
                         alert("You have to enable Hyper-V feature to use Hyper-V.")
                     } else if (stderr.includes("whpx: injection failed")) {
                         console.log(stderr)
+                    } else if (stderr.includes("audio: Failed to create voice")){
+                        alert("You should plug in your microphone to prevent from error spam.")
                     } else if(stderr == "" || stderr == undefined) {
                         console.log("empty stderr")
-                    } else {
-                        alert(stderr)
-                        console.log(stderr)
                     }
                 }
             });
