@@ -29,7 +29,11 @@ async function runguest(name, ostype, osver, ram, cpu, accel, gpu, border) {
             console.log(hda)
             console.log(cdrom)
 
+            //debug
             cdrom = "C:\\Users\\WinISO\\Downloads\\win8.1.iso"
+            hda = "C:\\Users\\WinISO\\user\\windows.qcow2"
+            border = "-boot d"
+            //
 
             //generate final command
             if (accel == "whpx")  { //gen 2
@@ -37,7 +41,7 @@ async function runguest(name, ostype, osver, ram, cpu, accel, gpu, border) {
                 var uefi = "-bios ../ovmf.fd"
                 var smbios = "-smbios type=0,vendor=teslavm,version=2.1 -smbios type=1,manufacturer=teslavm,product=teslavm,version=2.1"
                 var portforward = "-net user,hostfwd=tcp::3001-:3389 -net nic"
-                command = command_base + `.exe -name ${name.replace(/\s+/g, '')} ${border} ${cpuc} ${uefi} ${smbios} ${portforward} -device AC97 -usbdevice tablet -display sdl -machine q35  -m ${ram}M -smp ${cpu} -vga none -vga ${gpu} -accel ${accel}`;
+                command = command_base + `.exe -name ${name.replace(/\s+/g, '')} -drive file=../scsi.iso,media=cdrom ${border} ${cpuc} ${uefi} ${smbios} ${portforward} -device AC97 -usbdevice tablet -display gtk -machine q35 -m ${ram}M -smp ${cpu} -vga none -vga ${gpu} -accel ${accel}`;
             }
 
             if (accel == "hax") {//gen 1 (hax does not support gen 2 yet)
@@ -45,23 +49,39 @@ async function runguest(name, ostype, osver, ram, cpu, accel, gpu, border) {
                 var uefi = ""
                 var smbios = "-smbios type=0,vendor=teslavm,version=2.1 -smbios type=1,manufacturer=teslavm,product=teslavm,version=2.1"
                 var portforward = ""
-                command = command_base + `.exe -name ${name.replace(/\s+/g, '')} -boot menu=on ${border} ${cpuc} ${uefi} ${smbios} ${portforward} -device AC97 -usbdevice tablet -display sdl -machine q35  -m ${ram}M -smp ${cpu} -vga none -vga ${gpu} -accel ${accel}`;
+                command = command_base + `.exe -name ${name.replace(/\s+/g, '')} -boot menu=on ${border} ${cpuc} ${uefi} ${smbios} ${portforward} -device AC97 -usbdevice tablet -display gtk -machine q35 -m ${ram}M -smp ${cpu} -vga none -vga ${gpu} -accel ${accel}`;
             }
             console.log(hda)
             console.log(cdrom)
 
-            if (cdrom != "" && hda != "") {
-                console.log("CD-ROM and Hard Disk attached, building command with them.")
-                command = command + ` -hda ${hda} -cdrom ${cdrom}`
-            } else if (cdrom != "") {
-                console.log("CD-ROM attached, building command with it.")
-                command = command + ` -drive id=cdrom0,if=none,format=raw,readonly=on,file=${cdrom} -device virtio-scsi-pci,id=scsi0 -device scsi-cd,bus=scsi0.0,drive=cdrom0`
-            } else if (hda != "" ) {
-                console.log("Hard Disk attached, building command with it")
-                command = command + ` -hda ${hda} `
+            if (accel == "whpx") {
+                if (cdrom != "" && hda != "") {
+                    console.log("CD-ROM and Hard Disk attached, building command with them.")
+                    command = command + ` -device virtio-scsi-pci,id=scsi0 -drive file=${hda},if=none,format=qcow2,discard=unmap,aio=native,cache=none,id=someid -device scsi-hd,drive=someid,bus=scsi0.0 -cdrom ${cdrom}`
+                } else if (cdrom != "") {
+                    console.log("CD-ROM attached, building command with it.")
+                    command = command + ` -cdrom ${cdrom} `
+                } else if (hda != "" ) {
+                    console.log("Hard Disk attached, building command with it")
+                    command = command + ` -device virtio-scsi-pci,id=scsi0 -drive file=${hda},if=none,format=qcow2,discard=unmap,aio=native,cache=none,id=someid -device scsi-hd,drive=someid,bus=scsi0.0 `
+                } else {
+                    console.log("Nothing attached")
+                    command = command
+                }
             } else {
-                console.log("Nothing attached")
-                command = command
+                if (cdrom != "" && hda != "") {
+                    console.log("CD-ROM and Hard Disk attached, building command with them.")
+                    command = command + ` -hda ${hda} -cdrom ${cdrom}`
+                } else if (cdrom != "") {
+                    console.log("CD-ROM attached, building command with it.")
+                    command = command + ` -cdrom ${cdrom} `
+                } else if (hda != "" ) {
+                    console.log("Hard Disk attached, building command with it")
+                    command = command + ` -hda ${hda} `
+                } else {
+                    console.log("Nothing attached")
+                    command = command
+                }
             }
 
 
