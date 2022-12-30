@@ -33,6 +33,8 @@ The compiled executables are available in releases tab.
 ```
 <sub>Software used: sysbench, geekbench 5</sub>
 
+## How to install Hyper-V
+![image](https://user-images.githubusercontent.com/117595540/210113771-dc6acd62-7dee-4892-b10b-7ce88ebb64bc.png)
 
 
 
