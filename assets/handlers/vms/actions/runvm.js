@@ -41,7 +41,7 @@ async function runguest(name, ostype, osver, ram, cpu, accel, gpu, border) {
                 var uefi = "-bios ../ovmf.fd"
                 var smbios = "-smbios type=0,vendor=teslavm,version=2.1 -smbios type=1,manufacturer=teslavm,product=teslavm,version=2.1"
                 var portforward = "-net user,hostfwd=tcp::3001-:3389 -net nic"
-                command = command_base + `.exe -name ${name.replace(/\s+/g, '')} -drive file=../scsi.iso,media=cdrom ${border} ${cpuc} ${uefi} ${smbios} ${portforward} -device AC97 -usbdevice tablet -display gtk -machine q35 -m ${ram}M -smp ${cpu} -vga none -vga ${gpu} -accel ${accel}`;
+                command = command_base + `.exe -name ${name.replace(/\s+/g, '')} -drive file=../scsi.iso,media=cdrom ${border} ${cpuc} ${uefi} ${smbios} ${portforward} -device AC97 -usbdevice tablet -display gtk -machine q35 -m ${ram}M -smp ${cpu} -vga none -vga ${gpu} -accel ${accel} -device virtio-net,netdev=vmnic -netdev user,id=vmnic`;
             }
 
             if (accel == "hax") {//gen 1 (hax does not support gen 2 yet)
