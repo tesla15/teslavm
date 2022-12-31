@@ -43,7 +43,6 @@ Also it is very recommended to install virtio guest drivers after you install yo
 ![image](https://user-images.githubusercontent.com/117595540/210115596-0ce4b690-c472-4f56-bfa1-3ee146bd3837.png)
 
 
-
 ## Todo
 - [ ]  Internal virtual network
 - [ ]  NAT, Bridged etc. selection of network mode 
@@ -55,6 +54,21 @@ and much more...
 ## Accelerators
   - HAXM - Intel Hardware Accelerated Execution Manager (HAXM), you can't use it on AMD CPU. You should use it for Linux.
   - Hyper-V - Microsoft hypervisor, you can use it on every CPU which support hyper-v & VT-D,X. You should use it for Windows.
+
+## Troubleshooting
+#### I dont know how to install Hyper-V...
+
+ ![image](https://user-images.githubusercontent.com/117595540/210113771-dc6acd62-7dee-4892-b10b-7ce88ebb64bc.png)
+
+#### Windows installator does not see disk
+
+ ![image](https://user-images.githubusercontent.com/117595540/210115596-0ce4b690-c472-4f56-bfa1-3ee146bd3837.png)
+ 
+Also it is very recommended to install virtio guest drivers after you install your Windows (for QXL GPU, Ethernet).
+
+#### Network is verryy slow
+1. Disable intel network adapter
+2. Install drivers for RedHat VirtIO Ethernet Adapter (virtio guest tools)
 
 ## FAQ
 
