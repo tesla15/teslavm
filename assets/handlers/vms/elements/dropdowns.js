@@ -1,61 +1,55 @@
-var ostype;
-var osver;
-var accel;
-var gpuaccel;
-var bootorder;
-
-function selecthdd() {
+async function selecthdd() {
     bootorder = "-boot c";
 }
 
-function selectcd() {
+async function selectcd() {
     bootorder = "-boot d";
 }
 
-function selectwindows() {
+async function selectwindows() {
     ostype = "windows";
 }
 
-function selectlinux() {
+async function selectlinux() {
     ostype = "linux";
 }
 
-function newerthan7() {
+async function newerthan7() {
     osver = "q35"
 }
 
-function olderthan7() {
+async function olderthan7() {
     osver = "pc"
 }
 
-function tcg() {
+async function tcg() {
     accel = "tcg,thread=multi";
 }
 
-function hax() {
+async function hax() {
     accel = "hax"
 }
 
-function hyperv() {
+async function hyperv() {
     accel = "whpx"
 }
 
-function virtio() {
+async function virtio() {
     gpuaccel = "virtio"
 }
 
-function vga() {
+async function vga() {
     gpuaccel = "std"
 }
 
-function cirrus() {
+async function cirrus() {
     gpuaccel = "cirrus"
 }
 
-function qxl() {
+async function qxl() {
     gpuaccel = "qxl"
 }
 
-function vmwaresvga() {
+async function vmwaresvga() {
     gpuaccel = "vmware"
 }

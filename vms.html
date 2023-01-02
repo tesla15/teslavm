@@ -20,26 +20,13 @@
 </head>
 
 
-<body id="page-top" onload="readvms(); document.getElementById('titletext').innerHTML = `Welcome ${os.userInfo().username}!`">
+<body id="page-top" onload="document.getElementById('titletext').innerHTML = `Welcome ${os.userInfo().username}!`">
     <nav style="-webkit-app-region: drag" id="menu-bar">
         <a style="flex-grow: 1; text-align: center;" id="titletext"></a>
         <div class="window-controls">
           <i class="window-control-minimize"></i>
           <i class="window-control-close"></i>
         </div>
-        <script>
-             let controls = [
-                'minimize',
-                'close'
-            ];
-
-            controls.forEach(function (control) {
-            let button = document.getElementsByClassName('window-control-' + control)[0];
-            button.addEventListener('click', function (evt) {
-                nw.Window.get()[control]();
-            });
-            });
-        </script>
       </nav>
     <div id="gotcha">
         <div id="edit-vm-overlay">
@@ -180,7 +167,7 @@
                             <div class="col-lg-8">
                                 <div class="row">
                                     <div class="col">
-                                        <div class="card shadow mb-3" style="width: 914.656px;">
+                                        <div class="card shadow mb-3" style="width: 914.656px; margin-top: 10px;">
                                             <div class="card-header py-3">
                                                 <p class="text-primary m-0 fw-bold">Virtual Machines<button class="btn btn-primary btn-sm" type="submit" id="create-new-vm" onclick="createnewvm()" style="margin-left: 662px;margin-top: 0px;font-size: 14px;height: 35px;padding: 4px 8px;">Create new</button></p>
                                             </div>
@@ -212,7 +199,6 @@
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="/assets/bootstrap/js/theme.js"></script>
         <script src="/assets/handlers/vms/readvm.js"></script>
         <script src="/assets/handlers/vms/elements/dropdowns.js"></script>
         <script src="/assets/handlers/vms/elements/checkboxs.js"></script>
@@ -225,6 +211,19 @@
         <script src="/assets/handlers/vms/actions/editvm.js"></script>
         <script src="/assets/handlers/vms/actions/destroy.js"></script>
         <script src="/assets/handlers/user/alert.js"></script>
+        <script>
+            const controls = [
+                'minimize',
+                'close'
+            ];
+
+            for (const control of controls) {
+              const button = document.getElementsByClassName(`window-control-${control}`)[0];
+              button.addEventListener('click', async (evt) => {
+                nw.Window.get()[control]();
+              });
+            }
+        </script>
         <script type="text/javascript" src="https://livejs.com/live.js"></script> <!-- live reload -->
     </div>
 </body>

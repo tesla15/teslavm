@@ -1,1 +1,1 @@
-[{"guestname":"Windows 8.1","ostype":"windows","ram":"4122","cpu":"4","accel":"whpx","gpu":"qxl","cdrom":"","hdd":"","bootorder":""},{"guestname":"Kubuntu","ostype":"linux","ram":"5241","cpu":"4","accel":"hax","gpu":"virtio","cdrom":"","hdd":"","bootorder":""}]
+[{"guestname":"Windows Server 2016","ostype":"windows","ram":"5127","cpu":"4","accel":"whpx","gpu":"qxl","cdrom":"","hdd":"","bootorder":""}]

@@ -1,21 +1,18 @@
-function destroymachine(guestname) {
-    fsss.readFile('settings.json', {encoding: 'utf8', flag: 'r'}, function(err, data) {
-        if(err) console.log(err);
-        else {
-            var json = JSON.parse(data)
-            var editItem = null;
-            for (let i = 0; i < json.length; i++) {
-                if (json[i].guestname == guestname) {
-                    editItem = i;
-                }
-            }     
-
-            console.log(guestname, editItem)
-
-            json.splice(editItem, 1);
-
-            fsss.writeFileSync(`settings.json`, JSON.stringify(json))
-            location.reload();
-        }
-    });
-}
+async function destroymachine(guestname) {
+    try {
+      // Read the file asynchronously
+      const data = await fss.promises.readFile('settings.json', 'utf8');
+      // Parse the file content as JSON
+      const json = JSON.parse(data);
+      // Find the index of the item to be deleted
+      const editItem = json.findIndex(item => item.guestname === guestname);
+      // Remove the item from the array
+      json.splice(editItem, 1);
+      // Write the updated JSON array to the file
+      await fss.promises.writeFile('settings.json', JSON.stringify(json));
+      // Reload the page
+      location.reload();
+    } catch (err) {
+      console.log(err);
+    }
+  }

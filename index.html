@@ -26,19 +26,6 @@
           <i class="window-control-minimize"></i>
           <i class="window-control-close"></i>
         </div>
-        <script>
-             let controls = [
-                'minimize',
-                'close'
-            ];
-
-            controls.forEach(function (control) {
-            let button = document.getElementsByClassName('window-control-' + control)[0];
-            button.addEventListener('click', function (evt) {
-                nw.Window.get()[control]();
-            });
-            });
-        </script>
       </nav>
     <div id="wrapper">
         <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0" style="height: 787.359px;">
@@ -117,6 +104,20 @@
     </div>
     <script src="/assets/handlers/dashboard/sliders.js"></script>  <!--internal js-->
     <script src="/assets/handlers/dashboard/pcinfo.js"></script>  <!--internal js-->
+    <script>
+        let controls = [
+           'minimize',
+           'close'
+       ];
+
+       controls.forEach(function (control) {
+       let button = document.getElementsByClassName('window-control-' + control)[0];
+       button.addEventListener('click', function (evt) {
+           nw.Window.get()[control]();
+       });
+       });
+   </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="https://livejs.com/live.js"></script> <!-- live reload -->
 </body>
 </html>
