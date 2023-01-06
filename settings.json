@@ -1,1 +1,1 @@
-[{"guestname":"Windows Server 2016","ostype":"windows","ram":"5127","cpu":"4","accel":"whpx","gpu":"qxl","cdrom":"","hdd":"","bootorder":""}]
+[{"guestname":"Windows Server 2016","ostype":"windows","ram":"5127","cpu":"4","accel":"whpx","gpu":"vmware","cdrom":"","hdd":"","bootorder":""}]

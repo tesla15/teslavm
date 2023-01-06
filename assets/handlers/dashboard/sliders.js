@@ -27,5 +27,5 @@ async function updateusage() {
     document.getElementById("ram-free").style.width = `${getScaledValue(freemem.toFixed(1), 0, totalmem.toFixed(0), 0, 100)}%`
   }
   
-  setInterval(updateusage, 50); //interval for calling cpu to run function each 1s for updating
+  setInterval(updateusage, 1000); //interval for calling cpu to run function each 1s for updating
   

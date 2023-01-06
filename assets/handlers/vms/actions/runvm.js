@@ -30,9 +30,9 @@ async function runguest(name, ostype, osver, ram, cpu, accel, gpu, border) {
             console.log(cdrom)
 
             //debug
-            //cdrom = "C:\\Users\\WinISO\\Downloads\\win16.iso"
-            hda = "C:\\Users\\WinISO\\Downloads\\server.qcow2"
-            border = "-boot d"
+                //cdrom = "C:\\Users\\WinISO\\Downloads\\win16.iso"
+                hda = "C:\\Users\\WinISO\\Downloads\\server.qcow2"
+                border = "-boot d"
             //
 
             //generate final command
@@ -41,7 +41,7 @@ async function runguest(name, ostype, osver, ram, cpu, accel, gpu, border) {
                 var uefi = "-bios ../ovmf.fd"
                 var smbios = "-smbios type=0,vendor=teslavirtualization,version=2.1 -smbios type=1,manufacturer=teslavirtualization,product=teslavirtualization,version=2.1"
                 var portforward = "-net user,hostfwd=tcp::3388-:3389 -net nic"
-                command = command_base + `.exe -name ${name.replace(/\s+/g, '')} -drive file=../scsi.iso,media=cdrom ${border} ${cpuc} ${uefi} ${smbios} ${portforward} -device intel-hda -usbdevice tablet -display gtk -machine q35 -m ${ram}M -smp ${cpu} -vga none -vga ${gpu} -accel ${accel} -device virtio-net,netdev=vmnic -netdev user,id=vmnic`;
+                command = command_base + `.exe -name ${name.replace(/\s+/g, '')} -drive file=../driver.iso,media=cdrom ${border} ${cpuc} ${uefi} ${smbios} ${portforward} -device intel-hda -usbdevice tablet -display gtk -machine q35 -m ${ram}M -smp ${cpu} -vga none -vga ${gpu} -accel ${accel} -device virtio-net,netdev=vmnic -netdev user,id=vmnic`;
             }
 
             if (accel == "hax") {//gen 1 (hax does not support gen 2 yet)
@@ -103,6 +103,8 @@ async function runguest(name, ostype, osver, ram, cpu, accel, gpu, border) {
                         console.log("empty stderr")
                     } else if (stderr.includes("Image is not in qcow2 format")) {
                         alert("Only qcow2 format is supported for now.")
+                    } else if (stderr.includes("Could not open")) {
+                        alert("Could not find CD-ROM/HDD on physical disk")
                     }
                 }
             });
