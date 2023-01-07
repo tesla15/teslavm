@@ -89,8 +89,7 @@ Also it is very recommended to install virtio guest drivers after you install yo
 ##
 
 ## Screenshot from app
-alpha frontend
-![demo](https://i.imgur.com/pcSQVzu.png)
+![image](https://user-images.githubusercontent.com/117595540/211153897-01a6bf0f-85f7-4c82-bbcc-ee35e7281f3b.png)
 
 
 
